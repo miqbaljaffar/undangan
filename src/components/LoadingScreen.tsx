@@ -57,7 +57,7 @@ export default function LoadingScreen() {
       style={{ pointerEvents: 'auto' }}
     >
       {/* Absolute core aesthetic decor */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[240px] bg-luxury-gold/5 rounded-full blur-[80px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-luxury-gold/5 rounded-full blur-[80px]" />
 
       <div className="text-center space-y-6 relative z-10">
         {/* Monogram circle */}

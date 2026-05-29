@@ -8,7 +8,7 @@ export default function Footer() {
       id="footer-section"
     >
       {/* Background radial soft light */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-[350px] bg-luxury-gold/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-87.5 h-87.5 bg-luxury-gold/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="relative z-10 max-w-2xl mx-auto space-y-6">
         
@@ -28,7 +28,7 @@ export default function Footer() {
           Raga & Citra
         </h2>
 
-        <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-luxury-gold to-transparent mx-auto" />
+        <div className="w-24 h-px bg-linear-to-r from-transparent via-luxury-gold to-transparent mx-auto" />
 
         <p className="font-sans text-xs text-luxury-cream/65 leading-relaxed max-w-sm mx-auto">
           Merupakan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i sekalian berkenan hadir dan memberikan doa restu kepada kami kedua mempelai.

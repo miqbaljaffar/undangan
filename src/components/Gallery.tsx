@@ -71,7 +71,7 @@ export default function Gallery() {
       id="gallery-section"
     >
       {/* Background Soft Glow */}
-      <div className="absolute bottom-10 right-10 w-[300px] h-[300px] bg-luxury-gold/5 rounded-full blur-[90px] pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-75 h-75 bg-luxury-gold/5 rounded-full blur-[90px] pointer-events-none" />
 
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto space-y-4 mb-16 relative z-10">
@@ -84,7 +84,7 @@ export default function Gallery() {
           Glimpse of Love
         </h2>
         
-        <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-luxury-gold to-transparent mx-auto gallery-animate-header" />
+        <div className="w-16 h-px bg-linear-to-r from-transparent via-luxury-gold to-transparent mx-auto gallery-animate-header" />
         
         {/* Category Filters */}
         <div className="flex flex-wrap items-center justify-center gap-2 mt-8 z-10 gallery-animate-header">
@@ -122,7 +122,7 @@ export default function Gallery() {
                 />
 
                 {/* Ambient Elegant Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-luxury-black via-luxury-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5">
+                <div className="absolute inset-0 bg-linear-to-t from-luxury-black via-luxury-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5">
                   <span className="text-[10px] font-sans text-luxury-gold uppercase tracking-widest font-semibold block mb-1">
                     {item.category}
                   </span>

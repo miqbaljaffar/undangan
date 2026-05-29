@@ -88,7 +88,7 @@ export default function HeroSection() {
             backgroundImage: "url('https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&q=80&w=1200')" 
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-luxury-black via-luxury-black/90 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-luxury-black via-luxury-black/90 to-transparent" />
       </div>
 
       {/* Floating Monogram decoration in background */}
@@ -116,7 +116,7 @@ export default function HeroSection() {
         >
           Pernikahan Agung
         </motion.h2>
-        <div className="w-12 h-[1px] bg-luxury-gold mx-auto my-4" />
+        <div className="w-12 h-px bg-luxury-gold mx-auto my-4" />
         <motion.p 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.8 }}

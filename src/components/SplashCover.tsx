@@ -84,7 +84,7 @@ export default function SplashCover({ onOpen, isOpened }: SplashCoverProps) {
       style={{ clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
     >
       {/* Background soft glowing orb */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-luxury-gold/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-75 h-75 md:w-125 md:h-125 bg-luxury-gold/10 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Floating Sparkles Decoration */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
@@ -136,7 +136,7 @@ export default function SplashCover({ onOpen, isOpened }: SplashCoverProps) {
             {coupleInfo.groom.nickName} <span className="font-accent text-luxury-gold text-5xl md:text-7xl block my-2">&</span> {coupleInfo.bride.nickName}
           </h1>
 
-          <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-luxury-gold to-transparent mx-auto my-6" />
+          <div className="w-16 h-1px bg-linear-to-r from-transparent via-luxury-gold to-transparent mx-auto my-6" />
 
           {/* Invitation target for guest (dynamic info) */}
           <div className="glass-card rounded-2xl p-6.5 my-6 shadow-gold-glow max-w-sm mx-auto">
@@ -146,7 +146,7 @@ export default function SplashCover({ onOpen, isOpened }: SplashCoverProps) {
             <p className="font-serif text-lg text-luxury-ivory font-semibold capitalize my-1">
               {new URLSearchParams(window.location.search).get('to') || "Tamu Undangan Terhormat"}
             </p>
-            <div className="w-24 h-[1px] bg-luxury-gold/20 mx-auto my-2" />
+            <div className="w-24 h-px bg-luxury-gold/20 mx-auto my-2" />
             <p className="font-sans text-[11px] text-luxury-cream/60 leading-relaxed italic">
               Dengan penuh kehormatan kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam perayaan hari bahagia kami.
             </p>

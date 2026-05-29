@@ -47,7 +47,7 @@ export default function GiftSection() {
       id="gift-section"
     >
       {/* Background Soft Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-luxury-gold/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-75 h-75 bg-luxury-gold/5 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Title */}
       <div className="text-center max-w-2xl mx-auto space-y-4 mb-20 relative z-10">
@@ -60,7 +60,7 @@ export default function GiftSection() {
           Wedding Gift
         </h2>
         
-        <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-luxury-gold to-transparent mx-auto gift-animate-element" />
+        <div className="w-16 h-px bg-linear-to-r from-transparent via-luxury-gold to-transparent mx-auto gift-animate-element" />
         
         <p className="text-xs md:text-sm text-luxury-cream/70 font-sans max-w-md mx-auto leading-relaxed gift-animate-element">
           Doa restu Anda adalah karunia paling berarti bagi kami. Namun jika Anda ingin mengirimkan tanda kasih digital, kami menyediakan gerbang amplop digital berikut.
@@ -76,7 +76,7 @@ export default function GiftSection() {
               className="gift-animate-element p-6 md:p-8 rounded-2xl glass-card shadow-gold-glow relative overflow-hidden group hover:border-luxury-gold/40 transition-luxury flex flex-col justify-between h-58"
             >
               {/* Card texture/grid line decors */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-luxury-black/40 via-transparent to-luxury-gold/5 pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-tr from-luxury-black/40 via-transparent to-luxury-gold/5 pointer-events-none" />
               <div className="absolute -top-12 -right-12 w-28 h-28 bg-luxury-gold/5 rounded-full blur-xl group-hover:bg-luxury-gold/10 transition-colors" />
 
               <div className="flex items-start justify-between">
@@ -98,7 +98,7 @@ export default function GiftSection() {
 
               {/* Number and account holder */}
               <div className="mt-4">
-                <span className="font-mono text-lg md:text-xl text-luxury-gold-light tracking-[0.1em] font-medium block select-all">
+                <span className="font-mono text-lg md:text-xl text-luxury-gold-light tracking-widest font-medium block select-all">
                   {gift.accountNumber.replace(/(\d{4})/g, '$1 ')}
                 </span>
                 <span className="font-serif text-sm text-luxury-cream/75 block uppercase tracking-wide mt-1.5">

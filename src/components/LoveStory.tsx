@@ -75,8 +75,8 @@ export default function LoveStory() {
       id="love-story-section"
     >
       {/* Background radial soft light */}
-      <div className="absolute top-1/3 left-1/4 w-[250px] h-[250px] bg-luxury-gold/5 rounded-full blur-[80px] pointer-events-none" />
-      <div className="absolute bottom-1/3 right-1/4 w-[250px] h-[250px] bg-luxury-gold/5 rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 w-62.5 h-62.5 bg-luxury-gold/5 rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute bottom-1/3 right-1/4 w-62.5 h-62.5 bg-luxury-gold/5 rounded-full blur-[80px] pointer-events-none" />
 
       {/* Title Header */}
       <div 
@@ -92,7 +92,7 @@ export default function LoveStory() {
         <h2 className="font-serif text-3xl md:text-5xl text-luxury-ivory font-light tracking-wide text-glow">
           Our Love Story
         </h2>
-        <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-luxury-gold to-transparent mx-auto" />
+        <div className="w-16 h-px bg-linear-to-r from-transparent via-luxury-gold to-transparent mx-auto" />
         <p className="text-xs md:text-sm text-luxury-cream/70 font-sans max-w-sm mx-auto leading-relaxed">
           Bagaimana takdir merajut jemari kami, menempuh perjalanan penuh kasih menuju gerbang pernikahan.
         </p>
@@ -102,7 +102,7 @@ export default function LoveStory() {
       <div className="relative w-full max-w-4xl mx-auto z-10">
         
         {/* Central Vertical Connector Line */}
-        <div className="absolute left-[21px] md:left-1/2 md:-translate-x-1/2 top-4 bottom-4 w-[1px] bg-dashed border-l border-luxury-gold/25 pointer-events-none" />
+        <div className="absolute left-5.25 md:left-1/2 md:-translate-x-1/2 top-4 bottom-4 w-px bg-dashed border-l border-luxury-gold/25 pointer-events-none" />
 
         {/* Story Nodes */}
         <div className="space-y-16 md:space-y-24">
@@ -139,7 +139,7 @@ export default function LoveStory() {
                 </div>
 
                 {/* 2. Middle Visual Ring Dot Indicator */}
-                <div className="col-dot absolute left-[12px] md:left-1/2 md:-translate-x-1/2 flex items-center justify-center z-15">
+                <div className="col-dot absolute left-3 md:left-1/2 md:-translate-x-1/2 flex items-center justify-center z-15">
                   <div className="w-5 h-5 rounded-full bg-luxury-black border border-luxury-gold flex items-center justify-center p-1.5 shadow-gold-glow">
                     {/* Inner gold flashing nucleus */}
                     <div className="w-full h-full rounded-full bg-luxury-gold animate-pulse" />

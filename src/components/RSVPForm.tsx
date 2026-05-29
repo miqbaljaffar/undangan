@@ -127,7 +127,7 @@ export default function RSVPForm() {
       id="rsvp-section"
     >
       {/* Background Soft Gold Rings */}
-      <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[280px] h-[280px] bg-luxury-gold/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-70 h-70 bg-luxury-gold/5 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Title */}
       <div className="text-center max-w-2xl mx-auto space-y-4 mb-16 relative z-10">
@@ -140,7 +140,7 @@ export default function RSVPForm() {
           Buku Tamu & RSVP
         </h2>
         
-        <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-luxury-gold to-transparent mx-auto rsvp-animate-element" />
+        <div className="w-16 h-px bg-linear-to-r from-transparent via-luxury-gold to-transparent mx-auto rsvp-animate-element" />
         
         <p className="text-xs md:text-sm text-luxury-cream/70 font-sans max-w-md mx-auto leading-relaxed rsvp-animate-element">
           Kehadiran dan untaian doa restu Anda akan melengkapi menyatunya lembaran takdir ikatan pernikahan suci kami.
@@ -255,7 +255,7 @@ export default function RSVPForm() {
         </div>
 
         {/* Right Comments/Wishes Stream List */}
-        <div className="rsvp-animate-element lg:col-span-7 glass-card p-6 md:p-8 rounded-2xl max-h-[580px] overflow-y-auto no-scrollbar shadow-gold-glow custom-scroll">
+        <div className="rsvp-animate-element lg:col-span-7 glass-card p-6 md:p-8 rounded-2xl max-h-145 overflow-y-auto no-scrollbar shadow-gold-glow custom-scroll">
           
           <div className="flex items-center justify-between pb-4 border-b border-luxury-gold/10 mb-6 sticky top-0 bg-luxury-dark/95 backdrop-blur z-20 py-1">
             <h3 className="font-serif text-xl text-luxury-ivory font-light tracking-wide flex items-center gap-2">

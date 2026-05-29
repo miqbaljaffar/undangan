@@ -71,7 +71,7 @@ export default function EventDetails() {
       id="event-details-section"
     >
       {/* Background Soft Glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-luxury-gold/5 rounded-full blur-[110px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-87.5 h-87.5 bg-luxury-gold/5 rounded-full blur-[110px] pointer-events-none" />
 
       {/* Header and navigation tabs */}
       <div className="text-center max-w-2xl mx-auto space-y-4 mb-20 relative z-10">
@@ -84,7 +84,7 @@ export default function EventDetails() {
           Detail Acara
         </h2>
         
-        <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-luxury-gold to-transparent mx-auto event-animate-header" />
+        <div className="w-16 h-px bg-linear-to-r from-transparent via-luxury-gold to-transparent mx-auto event-animate-header" />
         
         <p className="text-xs md:text-sm text-luxury-cream/70 font-sans max-w-md mx-auto leading-relaxed event-animate-header">
           Merupakan suatu kehormatan dan kebahagiaan luar biasa bagi kami sekeluarga apabila Bapak/Ibu sekalian berkenan meluangkan waktu memberikan doa restu.
@@ -103,8 +103,8 @@ export default function EventDetails() {
               onClick={() => setActiveTab(index)}
               className={`event-bento-card p-6 md:p-8 rounded-2xl glass-card cursor-pointer transition-luxury shadow-gold-glow flex flex-col justify-between relative group ${
                 activeTab === index 
-                  ? 'ring-2 ring-luxury-gold border-luxury-gold/50 bg-white/[0.08]' 
-                  : 'border-white/10 hover:border-luxury-gold/30 hover:bg-white/[0.08]'
+                  ? 'ring-2 ring-luxury-gold border-luxury-gold/50 bg-white/8' 
+                  : 'border-white/10 hover:border-luxury-gold/30 hover:bg-white/8'
               }`}
             >
               {/* Event Badge Icon overlay */}
@@ -177,13 +177,13 @@ export default function EventDetails() {
 
       {/* Embedded Dynamic Interactive Map View */}
       <div className="relative z-10 w-full max-w-5xl mx-auto mt-12 rounded-2xl overflow-hidden glass-card shadow-gold-glow p-2">
-        <div className="w-full h-80 md:h-[400px] rounded-xl overflow-hidden relative">
+        <div className="w-full h-80 md:h-100 rounded-xl overflow-hidden relative">
           <iframe
             title="Google Maps Location"
             src={weddingEvents[activeTab].mapsEmbedUrl}
             width="100%"
             height="100%"
-            className="border-0 grayscale invert-[90%] contrast-[105%] opacity-85 hover:opacity-100 transition-opacity duration-500"
+            className="border-0 grayscale invert-90 contrast-105 opacity-85 hover:opacity-100 transition-opacity duration-500"
             allowFullScreen={false}
             loading="lazy"
             referrerPolicy="no-referrer"
