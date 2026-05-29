@@ -1,0 +1,320 @@
+import React, { useEffect, useState, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { MessageSquare, Users, CheckCircle, Send, HeartHandshake } from 'lucide-react';
+import { RSVP } from '../types';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const initialWishes: RSVP[] = [
+  {
+    id: "1",
+    name: "Raisa & Aditya",
+    guests: 2,
+    status: "hadir",
+    wish: "Selamat untuk Raga dan Citra! Barakallahu laka wa baaraka 'alaika wa jama'a bainakuma fii khair. Semoga pernikahan ini dipenuhi mawaddah, warahmah, dan ketentraman selamanya.",
+    createdAt: new Date(Date.now() - 4 * 3600 * 1000).toISOString() // 4 hours ago
+  },
+  {
+    id: "2",
+    name: "Bima Seno Hadi",
+    guests: 0,
+    status: "tidak_hadir",
+    wish: "Sangat bahagia melihat kalian berdua bersanding! Mohon maaf belum bisa hadir langsung karena dinas di luar kota, doa terbaik kami panjatkan dari jauh untuk kebahagiaan paripurna kalian.",
+    createdAt: new Date(Date.now() - 10 * 3600 * 1000).toISOString() // 10 hours ago
+  },
+  {
+    id: "3",
+    name: "Sarah Amalia",
+    guests: 1,
+    status: "hadir",
+    wish: "Wow, selamat ya Raga dan Citra! Lancar sampai hari H! Gak sabar mau hadir di pesta pernikahan megah & romantis kalian ini. See you!",
+    createdAt: new Date(Date.now() - 24 * 3600 * 1000).toISOString() // 1 day ago
+  }
+];
+
+export default function RSVPForm() {
+  const [wishes, setWishes] = useState<RSVP[]>([]);
+  const [formData, setFormData] = useState({
+    name: '',
+    guests: '1',
+    status: 'hadir',
+    wish: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Load existing RSVPs from localStorage
+    const stored = localStorage.getItem('wedding_rsvps');
+    if (stored) {
+      try {
+        setWishes(JSON.parse(stored));
+      } catch (e) {
+        setWishes(initialWishes);
+      }
+    } else {
+      setWishes(initialWishes);
+      localStorage.setItem('wedding_rsvps', JSON.stringify(initialWishes));
+    }
+
+    // GSAP Scroll Triggers
+    if (containerRef.current) {
+      gsap.fromTo('.rsvp-animate-element',
+        { opacity: 0, y: 35 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.1,
+          stagger: 0.15,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.rsvp-animate-element',
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+    }
+  }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name.trim() || !formData.wish.trim()) return;
+
+    setIsSubmitting(true);
+
+    // Simulate real database write delay
+    setTimeout(() => {
+      const newRSVP: RSVP = {
+        id: Date.now().toString(),
+        name: formData.name.trim(),
+        guests: formData.status === 'hadir' ? parseInt(formData.guests) : 0,
+        status: formData.status as 'hadir' | 'tidak_hadir',
+        wish: formData.wish.trim(),
+        createdAt: new Date().toISOString()
+      };
+
+      const updatedWishes = [newRSVP, ...wishes];
+      setWishes(updatedWishes);
+      localStorage.setItem('wedding_rsvps', JSON.stringify(updatedWishes));
+
+      // Reset Form fields
+      setFormData({
+        name: '',
+        guests: '1',
+        status: 'hadir',
+        wish: ''
+      });
+      setIsSubmitting(false);
+      setSubmitSuccess(true);
+
+      // Hide success state after 4 seconds
+      setTimeout(() => setSubmitSuccess(false), 4000);
+    }, 1200);
+  };
+
+  return (
+    <section 
+      ref={containerRef}
+      className="relative bg-luxury-black/95 py-24 px-6 md:px-12 overflow-hidden border-b border-luxury-gold/10"
+      id="rsvp-section"
+    >
+      {/* Background Soft Gold Rings */}
+      <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[280px] h-[280px] bg-luxury-gold/5 rounded-full blur-[100px] pointer-events-none" />
+
+      {/* Title */}
+      <div className="text-center max-w-2xl mx-auto space-y-4 mb-16 relative z-10">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-luxury-gold/20 bg-luxury-dark/60 text-luxury-gold text-xs font-sans tracking-widest uppercase mb-2">
+          <HeartHandshake className="w-3.5 h-3.5" />
+          <span>Konfirmasi & Ucapan</span>
+        </div>
+        
+        <h2 className="font-serif text-3xl md:text-5xl text-luxury-ivory font-light tracking-wide text-glow rsvp-animate-element">
+          Buku Tamu & RSVP
+        </h2>
+        
+        <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-luxury-gold to-transparent mx-auto rsvp-animate-element" />
+        
+        <p className="text-xs md:text-sm text-luxury-cream/70 font-sans max-w-md mx-auto leading-relaxed rsvp-animate-element">
+          Kehadiran dan untaian doa restu Anda akan melengkapi menyatunya lembaran takdir ikatan pernikahan suci kami.
+        </p>
+      </div>
+
+      {/* Container Flex / Grid Split */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        {/* Left Form Panel */}
+        <div className="rsvp-animate-element lg:col-span-5 glass-card p-6 md:p-8 rounded-2xl shadow-gold-glow relative">
+          
+          <h3 className="font-serif text-xl md:text-2xl text-luxury-ivory font-light mb-6 tracking-wide pb-3 border-b border-luxury-gold/10">
+            Form Kehadiran
+          </h3>
+
+          {submitSuccess && (
+            <div className="mb-6 p-4 rounded bg-luxury-gold/10 border border-luxury-gold/30 flex items-center gap-2.5 text-luxury-gold text-xs font-sans">
+              <CheckCircle className="w-4 h-4 shrink-0" />
+              <span>Terima kasih! RSVP dan doa restu Anda telah terekam dengan sukses.</span>
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-5 font-sans text-xs md:text-sm">
+            
+            {/* 1. Name Input */}
+            <div className="space-y-1.5">
+              <label htmlFor="name-input" className="block text-luxury-cream/80 text-[11px] font-semibold uppercase tracking-wider">
+                Nama Lengkap
+              </label>
+              <input
+                id="name-input"
+                type="text"
+                name="name"
+                required
+                placeholder="Masukkan nama Anda..."
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full px-4 py-3 bg-luxury-black/60 border border-luxury-gold/20 focus:border-luxury-gold rounded text-luxury-ivory placeholder-luxury-cream/30 focus:outline-none transition-colors"
+              />
+            </div>
+
+            {/* 2. Status Select */}
+            <div className="space-y-1.5">
+              <label htmlFor="status-input" className="block text-luxury-cream/80 text-[11px] font-semibold uppercase tracking-wider">
+                Konfirmasi Kehadiran
+              </label>
+              <select
+                id="status-input"
+                name="status"
+                value={formData.status}
+                onChange={handleChange}
+                className="w-full px-4 py-3 bg-luxury-black/60 border border-luxury-gold/20 focus:border-luxury-gold rounded text-luxury-ivory focus:outline-none transition-colors"
+              >
+                <option value="hadir">Sangat Senang, Saya Akan Hadir</option>
+                <option value="tidak_hadir">Berhalangan, Doa Saya Menyertai</option>
+              </select>
+            </div>
+
+            {/* 3. Companions Guests Select */}
+            {formData.status === 'hadir' && (
+              <div className="space-y-1.5 transition-all duration-300">
+                <label htmlFor="guests-input" className="block text-luxury-cream/80 text-[11px] font-semibold uppercase tracking-wider">
+                  Jumlah Tamu Kehadiran
+                </label>
+                <div className="relative">
+                  <select
+                    id="guests-input"
+                    name="guests"
+                    value={formData.guests}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-luxury-black/60 border border-luxury-gold/20 focus:border-luxury-gold rounded text-luxury-ivory focus:outline-none transition-colors appearance-none"
+                  >
+                    {[1, 2, 3, 4, 5].map(n => (
+                      <option key={n} value={n}>{n} Orang</option>
+                    ))}
+                  </select>
+                  <Users className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-luxury-gold/60 pointer-events-none" />
+                </div>
+              </div>
+            )}
+
+            {/* 4. Blessings wish message textarea */}
+            <div className="space-y-1.5">
+              <label htmlFor="wish-input" className="block text-luxury-cream/80 text-[11px] font-semibold uppercase tracking-wider">
+                Ucapan Doa & Harapan Kasih
+              </label>
+              <textarea
+                id="wish-input"
+                name="wish"
+                required
+                rows={4}
+                placeholder="Tuliskan ucapan selamat terindah serta doa tulus Anda..."
+                value={formData.wish}
+                onChange={handleChange}
+                className="w-full px-4 py-3 bg-luxury-black/60 border border-luxury-gold/20 focus:border-luxury-gold rounded text-luxury-ivory placeholder-luxury-cream/30 focus:outline-none transition-colors resize-none"
+              />
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full mt-2 py-3.5 bg-luxury-gold hover:bg-luxury-gold-light text-luxury-black uppercase tracking-widest text-xs font-semibold rounded cursor-pointer flex items-center justify-center gap-2.5 shadow-gold-glow transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.01]"
+              id="btn-submit-rsvp"
+            >
+              <Send className={`w-3.5 h-3.5 ${isSubmitting ? 'animate-pulse' : ''}`} />
+              <span>{isSubmitting ? 'Mengirim RSVP...' : 'Kirim RSVP'}</span>
+            </button>
+
+          </form>
+        </div>
+
+        {/* Right Comments/Wishes Stream List */}
+        <div className="rsvp-animate-element lg:col-span-7 glass-card p-6 md:p-8 rounded-2xl max-h-[580px] overflow-y-auto no-scrollbar shadow-gold-glow custom-scroll">
+          
+          <div className="flex items-center justify-between pb-4 border-b border-luxury-gold/10 mb-6 sticky top-0 bg-luxury-dark/95 backdrop-blur z-20 py-1">
+            <h3 className="font-serif text-xl text-luxury-ivory font-light tracking-wide flex items-center gap-2">
+              <MessageSquare className="w-5 h-5 text-luxury-gold" />
+              <span>Tamu yang Mengucapkan</span>
+            </h3>
+            <span className="font-sans text-[11px] text-luxury-gold font-semibold uppercase bg-luxury-gold/10 rounded-full px-3 py-1">
+              {wishes.length} Doa
+            </span>
+          </div>
+
+          {/* Cards Stream */}
+          <div className="space-y-4">
+            {wishes.length === 0 ? (
+              <p className="font-sans text-xs text-luxury-cream/40 italic text-center py-8">Belum ada ucapan terkirim...</p>
+            ) : (
+              wishes.map((item) => {
+                const dateRelative = new Date(item.createdAt).toLocaleDateString('id-ID', {
+                  day: 'numeric',
+                  month: 'short',
+                  year: 'numeric',
+                  hour: '2-digit',
+                  minute: '2-digit'
+                });
+
+                return (
+                  <div 
+                    key={item.id} 
+                    className="p-4 rounded-xl glass-card relative overflow-hidden flex flex-col gap-2 group hover:border-luxury-gold/25 transition-colors"
+                  >
+                    <div className="flex items-center justify-between gap-4 font-sans border-b border-luxury-gold/5 pb-2">
+                      <div>
+                        <span className="font-serif text-sm font-semibold text-luxury-ivory block capitalize leading-none mb-1">
+                          {item.name}
+                        </span>
+                        <span className="text-[9px] text-luxury-cream/40">{dateRelative}</span>
+                      </div>
+
+                      {/* Presence badge */}
+                      <span className={`text-[9px] uppercase tracking-widest px-2.5 py-0.5 rounded-full font-medium shrink-0 ${
+                        item.status === 'hadir' 
+                          ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/15' 
+                          : 'bg-rose-500/10 text-rose-400 border border-rose-500/15'
+                      }`}>
+                        {item.status === 'hadir' ? `Hadir (${item.guests})` : 'Tidak Hadir'}
+                      </span>
+                    </div>
+
+                    <p className="font-sans text-xs text-luxury-cream/80 leading-relaxed italic text-justify">
+                      "{item.wish}"
+                    </p>
+                  </div>
+                );
+              })
+            )}
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+}

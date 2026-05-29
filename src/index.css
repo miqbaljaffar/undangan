@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-accent: "Great Vibes", cursive;
+
+  --color-luxury-black: #050505;
+  --color-luxury-dark: #121212;
+  --color-luxury-darker: #020202;
+  --color-luxury-gold: #D4AF37;
+  --color-luxury-gold-light: #fccd5d;
+  --color-luxury-gold-dark: #b18e24;
+  --color-luxury-cream: #eae2d5;
+  --color-luxury-ivory: #FDFCF0;
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 12px rgba(212, 175, 55, 0.4), 0 0 24px rgba(212, 175, 55, 0.2);
+  }
+
+  .shadow-gold-glow {
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), 0 0 15px 1px rgba(212, 175, 55, 0.05);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .bg-luxury-radial {
+    background: radial-gradient(circle at center, #1c1810 0%, #050505 100%);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* Smooth animations helper */
+  .transition-luxury {
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+/* Base custom styles to ensure premium touch responsiveness and custom typography overrides */
+html {
+  scroll-behavior: smooth;
+  background-color: #050505;
+  color: #eae2d5;
+  font-family: var(--font-sans);
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom selection */
+::selection {
+  background-color: var(--color-luxury-gold);
+  color: var(--color-luxury-black);
+}
+
+/* Customize focus rings for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-luxury-gold);
+  outline-offset: 2px;
+}
