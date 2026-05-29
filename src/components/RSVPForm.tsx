@@ -1,8 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MessageSquare, Users, CheckCircle, Send, HeartHandshake } from 'lucide-react';
 import { RSVP } from '../types';
+import useLocalStorageState from '../hooks/useLocalStorageState';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,7 +13,7 @@ const initialWishes: RSVP[] = [
     name: "Raisa & Aditya",
     guests: 2,
     status: "hadir",
-    wish: "Selamat untuk Raga dan Citra! Barakallahu laka wa baaraka 'alaika wa jama'a bainakuma fii khair. Semoga pernikahan ini dipenuhi mawaddah, warahmah, dan ketentraman selamanya.",
+    wish: "Selamat untuk Iqbal dan Fahira! Barakallahu laka wa baaraka 'alaika wa jama'a bainakuma fii khair. Semoga pernikahan ini dipenuhi mawaddah, warahmah, dan ketentraman selamanya.",
     createdAt: new Date(Date.now() - 4 * 3600 * 1000).toISOString() // 4 hours ago
   },
   {
@@ -28,13 +29,13 @@ const initialWishes: RSVP[] = [
     name: "Sarah Amalia",
     guests: 1,
     status: "hadir",
-    wish: "Wow, selamat ya Raga dan Citra! Lancar sampai hari H! Gak sabar mau hadir di pesta pernikahan megah & romantis kalian ini. See you!",
+    wish: "Wow, selamat ya Iqbal dan Fahira! Lancar sampai hari H! Gak sabar mau hadir di pesta pernikahan megah & romantis kalian ini. See you!",
     createdAt: new Date(Date.now() - 24 * 3600 * 1000).toISOString() // 1 day ago
   }
 ];
 
 export default function RSVPForm() {
-  const [wishes, setWishes] = useState<RSVP[]>([]);
+  const [wishes, setWishes] = useLocalStorageState<RSVP[]>('wedding_rsvps', initialWishes);
   const [formData, setFormData] = useState({
     name: '',
     guests: '1',
@@ -46,20 +47,6 @@ export default function RSVPForm() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Load existing RSVPs from localStorage
-    const stored = localStorage.getItem('wedding_rsvps');
-    if (stored) {
-      try {
-        setWishes(JSON.parse(stored));
-      } catch (e) {
-        setWishes(initialWishes);
-      }
-    } else {
-      setWishes(initialWishes);
-      localStorage.setItem('wedding_rsvps', JSON.stringify(initialWishes));
-    }
-
-    // GSAP Scroll Triggers
     if (containerRef.current) {
       gsap.fromTo('.rsvp-animate-element',
         { opacity: 0, y: 35 },

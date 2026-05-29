@@ -54,10 +54,10 @@ export default function EventDetails() {
   const handleSaveToCalendar = () => {
     // Generate valid Google Calendar event addition URL for October 10, 2026
     // Akad + Reception is from 08:00 WIB to 14:00 WIB (01:00 UTC to 07:00 UTC)
-    const title = encodeURIComponent("Pernikahan Raga & Citra");
+    const title = encodeURIComponent("Pernikahan Iqbal & Fahira");
     const dates = "20261010T010000Z/20261010T070000Z"; // UTC Date
-    const details = encodeURIComponent("Kehadiran Anda adalah suatu kehormatan dan kebahagiaan bagi kami. Mari bersama merayakan persatuan cinta suci Raga & Citra.");
-    const location = encodeURIComponent("The Dharmawangsa Jakarta, Kebayoran Baru, Jakarta Selatan");
+    const details = encodeURIComponent("Kehadiran Anda adalah suatu kehormatan dan kebahagiaan bagi kami. Mari bersama merayakan persatuan cinta suci Iqbal & Fahira.");
+    const location = encodeURIComponent("Bandung, Jawa Barat");
     
     const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}`;
     

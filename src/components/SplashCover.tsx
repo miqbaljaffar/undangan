@@ -2,10 +2,11 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { Mail, Calendar, MapPin } from 'lucide-react';
 import { coupleInfo } from '../data';
+import useQueryParam from '../hooks/useQueryParam';
+import { formatIndonesianDate } from '../lib/dates';
 
 interface SplashCoverProps {
   onOpen: () => void;
-  isOpened: boolean;
 }
 
 export default function SplashCover({ onOpen, isOpened }: SplashCoverProps) {
@@ -68,13 +69,8 @@ export default function SplashCover({ onOpen, isOpened }: SplashCoverProps) {
     }, '-=0.4');
   };
 
-  // Extract date string
-  const dateObj = new Date(coupleInfo.weddingDate);
-  const formattedDate = dateObj.toLocaleDateString('id-ID', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  });
+  const guestName = useQueryParam('to', 'Tamu Undangan Terhormat');
+  const formattedDate = formatIndonesianDate(coupleInfo.weddingDate);
 
   return (
     <div
@@ -112,7 +108,7 @@ export default function SplashCover({ onOpen, isOpened }: SplashCoverProps) {
       {/* Main Content Card Container */}
       <div 
         ref={contentRef}
-        className="relative z-10 px-6 py-10 text-center max-w-lg mx-auto flex flex-col items-center justify-center"
+        className="relative z-10 px-4 py-10 text-center w-full max-w-[min(95vw,42rem)] mx-auto flex flex-col items-center justify-center"
       >
         {/* Monogram Circle Badge */}
         <div 
@@ -144,7 +140,7 @@ export default function SplashCover({ onOpen, isOpened }: SplashCoverProps) {
               Dear Special Guest,
             </p>
             <p className="font-serif text-lg text-luxury-ivory font-semibold capitalize my-1">
-              {new URLSearchParams(window.location.search).get('to') || "Tamu Undangan Terhormat"}
+              {guestName}
             </p>
             <div className="w-24 h-px bg-luxury-gold/20 mx-auto my-2" />
             <p className="font-sans text-[11px] text-luxury-cream/60 leading-relaxed italic">
@@ -161,7 +157,7 @@ export default function SplashCover({ onOpen, isOpened }: SplashCoverProps) {
             <div className="hidden sm:block text-luxury-gold/40">•</div>
             <div className="flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5 text-luxury-gold" />
-              <span>Jakarta, Indonesia</span>
+              <span>Bandung, Indonesia</span>
             </div>
           </div>
         </div>
@@ -170,7 +166,7 @@ export default function SplashCover({ onOpen, isOpened }: SplashCoverProps) {
         <button
           ref={buttonRef}
           onClick={handleOpenClick}
-          className="mt-10 px-8 py-3.5 bg-luxury-gold hover:bg-luxury-gold-light text-luxury-black font-sans uppercase text-xs font-semibold tracking-[0.2em] rounded shadow-gold-glow transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] group flex items-center gap-2.5 cursor-pointer relative overflow-hidden"
+          className="mt-10 w-full sm:w-auto px-8 py-3.5 bg-luxury-gold hover:bg-luxury-gold-light text-luxury-black font-sans uppercase text-xs font-semibold tracking-[0.2em] rounded shadow-gold-glow transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] group inline-flex items-center justify-center gap-2.5 cursor-pointer relative overflow-hidden"
           id="btn-open-invitation"
         >
           {/* Subtle golden shimmer gloss animation */}

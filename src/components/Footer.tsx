@@ -25,7 +25,7 @@ export default function Footer() {
         </p>
 
         <h2 className="font-serif text-3xl md:text-4xl text-luxury-ivory font-light tracking-wide text-glow">
-          Raga & Citra
+          {coupleInfo.groom.nickName} & {coupleInfo.bride.nickName}
         </h2>
 
         <div className="w-24 h-px bg-linear-to-r from-transparent via-luxury-gold to-transparent mx-auto" />
@@ -41,10 +41,10 @@ export default function Footer() {
             <Heart className="w-3 h-3 text-luxury-gold animate-[pulse_1.5s_infinite]" />
             <span>untuk Momen Bahagia</span>
           </div>
-          <p className="font-serif italic text-luxury-gold/50">Copyright © 2026 Raga & Citra - All Rights Reserved.</p>
+          <p className="font-serif italic text-luxury-gold/50">Copyright © 2026 {coupleInfo.groom.nickName} & {coupleInfo.bride.nickName} - All Rights Reserved.</p>
         </div>
-
       </div>
     </footer>
   );
 }
+

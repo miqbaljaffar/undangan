@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Prevent indexing of build artifacts or local files if deployed to a shared host.
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /dist/

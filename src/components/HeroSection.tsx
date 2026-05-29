@@ -1,44 +1,18 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { Instagram, CalendarClock, ChevronDown } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { coupleInfo, romanceQuote } from '../data';
+import useCountdown from '../hooks/useCountdown';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroSection() {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const timeLeft = useCountdown(coupleInfo.weddingDate);
   const containerRef = useRef<HTMLDivElement>(null);
   const heroImageRef = useRef<HTMLDivElement>(null);
   const quoteRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Recalculate countdown once a second
-    const targetDate = new Date(coupleInfo.weddingDate).getTime();
-    
-    const calculateTime = () => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference <= 0) {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-        return;
-      }
-
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-      setTimeLeft({ days, hours, minutes, seconds });
-    };
-
-    calculateTime();
-    const interval = setInterval(calculateTime, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     // Parallax effect on main hero background photo using GSAP
@@ -137,10 +111,10 @@ export default function HeroSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          className="flex flex-col items-center text-center space-y-6 group"
+          className="flex flex-col items-center text-center space-y-6 group w-full"
         >
           {/* Photo Frame Container with glow */}
-          <div className="relative w-64 h-80 md:w-72 md:h-96 overflow-hidden rounded-lg shadow-gold-glow border border-luxury-gold/20 p-2 bg-luxury-dark/60 transition-luxury hover:border-luxury-gold">
+          <div className="relative w-full max-w-sm h-72 md:h-96 overflow-hidden rounded-lg shadow-gold-glow border border-luxury-gold/20 p-2 bg-luxury-dark/60 transition-luxury hover:border-luxury-gold">
             {/* Corner floral lines */}
             <div className="absolute top-4 left-4 border-t border-l border-luxury-gold/40 w-4 h-4 transition-all duration-500 group-hover:w-8 group-hover:h-8" />
             <div className="absolute bottom-4 right-4 border-b border-r border-luxury-gold/40 w-4 h-4 transition-all duration-500 group-hover:w-8 group-hover:h-8" />
@@ -188,7 +162,7 @@ export default function HeroSection() {
           className="flex flex-col items-center text-center space-y-6 group"
         >
           {/* Photo Frame Container with glow */}
-          <div className="relative w-64 h-80 md:w-72 md:h-96 overflow-hidden rounded-lg shadow-gold-glow border border-luxury-gold/20 p-2 bg-luxury-dark/60 transition-luxury hover:border-luxury-gold">
+          <div className="relative w-full max-w-sm h-72 md:h-96 overflow-hidden rounded-lg shadow-gold-glow border border-luxury-gold/20 p-2 bg-luxury-dark/60 transition-luxury hover:border-luxury-gold">
             {/* Corner floral lines */}
             <div className="absolute top-4 left-4 border-t border-l border-luxury-gold/40 w-4 h-4 transition-all duration-500 group-hover:w-8 group-hover:h-8" />
             <div className="absolute bottom-4 right-4 border-b border-r border-luxury-gold/40 w-4 h-4 transition-all duration-500 group-hover:w-8 group-hover:h-8" />

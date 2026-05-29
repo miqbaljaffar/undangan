@@ -1,47 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
 import { Music, Music4 } from 'lucide-react';
+import useAudioPlayer from '../hooks/useAudioPlayer';
 
 interface AudioMuteBtnProps {
   isOpened: boolean;
 }
 
 export default function AudioMuteBtn({ isOpened }: AudioMuteBtnProps) {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const { isPlaying, toggle } = useAudioPlayer(
+    'https://assets.mixkit.co/music/preview/mixkit-love-and-tenderness-11516.mp3',
+    isOpened
+  );
 
-  useEffect(() => {
-    // Create audio player once
-    audioRef.current = new Audio('https://assets.mixkit.co/music/preview/mixkit-love-and-tenderness-11516.mp3');
-    audioRef.current.loop = true;
-
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    // Autoplay on invitation opened
-    if (isOpened && audioRef.current) {
-      audioRef.current.play()
-        .then(() => setIsPlaying(true))
-        .catch((error) => console.log('Autoplay blocked initially, will wait for toggle clicking:', error));
-    }
-  }, [isOpened]);
-
-  const togglePlayback = () => {
-    if (!audioRef.current) return;
-    if (isPlaying) {
-      audioRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      audioRef.current.play()
-        .then(() => setIsPlaying(true))
-        .catch(err => console.error("Playback failed to start", err));
-    }
-  };
+  const togglePlayback = () => toggle();
 
   return (
     <div className="fixed bottom-6 right-6 z-40">

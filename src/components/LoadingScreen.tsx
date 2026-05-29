@@ -1,17 +1,16 @@
 import { useEffect, useState, useRef } from 'react';
 import { Sparkles } from 'lucide-react';
 import gsap from 'gsap';
+import useBodyScrollLock from '../hooks/useBodyScrollLock';
 
 export default function LoadingScreen() {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    // Disable scrolling during load
-    document.body.style.overflow = 'hidden';
+  useBodyScrollLock(true);
 
-    // Simulate real smooth loading progress countdown
+  useEffect(() => {
     const interval = setInterval(() => {
       setProgress(prev => {
         if (prev >= 100) {
@@ -22,7 +21,6 @@ export default function LoadingScreen() {
       });
     }, 15);
 
-    // Fade out animation
     const timeout = setTimeout(() => {
       if (containerRef.current) {
         gsap.to(containerRef.current, {
@@ -32,11 +30,6 @@ export default function LoadingScreen() {
           ease: 'power3.inOut',
           onComplete: () => {
             setLoading(false);
-            // Re-lock or scroll depending on splash card
-            const openState = document.getElementById('splash-cover');
-            if (!openState) {
-              document.body.style.overflow = 'auto';
-            }
           }
         });
       }
@@ -70,7 +63,7 @@ export default function LoadingScreen() {
             Digital Invitation
           </p>
           <h2 className="font-serif text-xl text-luxury-ivory font-light tracking-widest uppercase">
-            Raga & Citra
+            Iqbal & Fahira
           </h2>
         </div>
 

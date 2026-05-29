@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Image, X, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+import { Image, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { galleryItems } from '../data';
+import useBodyScrollLock from '../hooks/useBodyScrollLock';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,6 +11,7 @@ export default function Gallery() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [filter, setFilter] = useState<'all' | 'romantic' | 'ceremony' | 'prewedding'>('all');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  useBodyScrollLock(lightboxIndex !== null);
 
   // Filter gallery items
   const filteredItems = filter === 'all' 
@@ -38,18 +40,14 @@ export default function Gallery() {
   }, []);
 
   const openLightbox = (id: number) => {
-    // Find index of the clicked item inside filtered items list so carousel navigation works perfectly
     const index = filteredItems.findIndex(item => item.id === id);
     if (index !== -1) {
       setLightboxIndex(index);
-      // Disable background document scroll when lightbox is active
-      document.body.style.overflow = 'hidden';
     }
   };
 
   const closeLightbox = () => {
     setLightboxIndex(null);
-    document.body.style.overflow = 'auto';
   };
 
   const nextSlide = () => {
