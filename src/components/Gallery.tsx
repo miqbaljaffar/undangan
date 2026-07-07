@@ -116,6 +116,9 @@ export default function Gallery() {
                   src={item.url}
                   alt={item.caption}
                   referrerPolicy="no-referrer"
+                  width={320}
+                  height={400}
+                  loading="lazy"
                   className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-105 filter brightness-95 group-hover:brightness-100"
                 />
 
@@ -174,6 +177,8 @@ export default function Gallery() {
                 src={filteredItems[lightboxIndex].url}
                 alt={filteredItems[lightboxIndex].caption}
                 referrerPolicy="no-referrer"
+                width={800}
+                height={600}
                 className="max-h-[75vh] max-w-full object-contain rounded"
               />
             </div>

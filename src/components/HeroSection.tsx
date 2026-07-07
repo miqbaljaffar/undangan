@@ -124,6 +124,10 @@ export default function HeroSection() {
                 src={coupleInfo.bride.photo} 
                 alt={coupleInfo.bride.fullName}
                 referrerPolicy="no-referrer"
+                width={384}
+                height={420}
+                loading="eager"
+                fetchPriority="high"
                 className="w-full h-full object-cover filter contrast-102 brightness-98"
               />
             </div>

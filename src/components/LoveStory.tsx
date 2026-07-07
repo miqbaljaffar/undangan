@@ -155,6 +155,9 @@ export default function LoveStory() {
                         src={story.image} 
                         alt={story.title}
                         referrerPolicy="no-referrer"
+                        width={384}
+                        height={224}
+                        loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-108 filter brightness-95"
                       />
                     </div>
