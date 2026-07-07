@@ -14,7 +14,6 @@ export default function Footer() {
         
         {/* Monogram Monogram Icon representation */}
         <div className="w-14 h-14 rounded-full border border-luxury-gold/30 flex items-center justify-center bg-luxury-black mx-auto relative shadow-gold-glow">
-          <div className="absolute inset-0.5 rounded-full border border-dashed border-luxury-gold/30 animate-[spin_80s_linear_infinite]" />
           <span className="font-serif text-sm text-luxury-gold uppercase tracking-wider pl-[0.1em]">
             F&I
           </span>

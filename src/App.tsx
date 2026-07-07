@@ -8,7 +8,6 @@ import HeroSection from './components/HeroSection';
 import LoveStory from './components/LoveStory';
 import EventDetails from './components/EventDetails';
 import Gallery from './components/Gallery';
-import RSVPForm from './components/RSVPForm';
 import GiftSection from './components/GiftSection';
 import Footer from './components/Footer';
 import useBodyScrollLock from './hooks/useBodyScrollLock';
@@ -51,11 +50,7 @@ export default function App() {
 
         <Gallery />
 
-        <div className="relative">
-          <FloatingFlowers />
-          
-          <RSVPForm />
-        </div>
+
 
         <GiftSection />
 
