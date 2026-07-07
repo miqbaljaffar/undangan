@@ -1,14 +1,13 @@
 import { useEffect, useState, useRef } from 'react';
 import { Heart } from 'lucide-react';
 import gsap from 'gsap';
-import useBodyScrollLock from '../hooks/useBodyScrollLock';
 
 export default function LoadingScreen() {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useBodyScrollLock(true);
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -70,8 +69,8 @@ export default function LoadingScreen() {
         {/* Custom Progress bar */}
         <div className="w-36 h-[1.5px] bg-luxury-gold/10 mx-auto relative rounded-full overflow-hidden">
           <div 
-            className="h-full bg-luxury-gold transition-all duration-75 ease-out" 
-            style={{ width: `${progress}%` }}
+            className="h-full bg-luxury-gold origin-left transition-transform duration-75 ease-out w-full" 
+            style={{ transform: `scaleX(${progress / 100})` }}
           />
         </div>
 
