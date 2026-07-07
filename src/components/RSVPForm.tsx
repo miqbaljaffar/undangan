@@ -163,7 +163,7 @@ export default function RSVPForm() {
                 placeholder="Masukkan nama Anda..."
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-luxury-black/60 border border-luxury-gold/20 focus:border-luxury-gold rounded text-luxury-ivory placeholder-luxury-cream/30 focus:outline-none transition-colors"
+                className="w-full px-4 py-3 bg-white/80 border border-luxury-gold/20 focus:border-luxury-gold rounded text-luxury-ivory placeholder-luxury-cream/50 focus:outline-none transition-colors"
               />
             </div>
 
@@ -180,7 +180,7 @@ export default function RSVPForm() {
                 placeholder="Tuliskan ucapan selamat ulang tahun terindah serta doa tulusmu di sini..."
                 value={formData.wish}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-luxury-black/60 border border-luxury-gold/20 focus:border-luxury-gold rounded text-luxury-ivory placeholder-luxury-cream/30 focus:outline-none transition-colors resize-none"
+                className="w-full px-4 py-3 bg-white/80 border border-luxury-gold/20 focus:border-luxury-gold rounded text-luxury-ivory placeholder-luxury-cream/50 focus:outline-none transition-colors resize-none"
               />
             </div>
 

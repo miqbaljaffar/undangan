@@ -81,9 +81,9 @@ export default function CursorGlow() {
         }}
       >
         {/* Outer soft champagne gold glow */}
-        <div className="w-16 h-16 rounded-full bg-luxury-gold/8 blur-md" />
+        <div className="w-12 h-12 rounded-full bg-luxury-gold/15 blur-xs" />
         {/* Inner precise pinpoint micro indicator */}
-        <div className="w-1.5 h-1.5 rounded-full bg-luxury-gold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-[0_0_8px_rgba(219,90,124,0.8)]" />
+        <div className="w-1.5 h-1.5 rounded-full bg-luxury-gold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-[0_0_8px_rgba(219,90,124,0.5)]" />
       </div>
 
       {/* 2. Beautiful floating trailing heart particles */}

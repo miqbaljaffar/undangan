@@ -18,7 +18,7 @@ export default function FloatingFlowers() {
     const colors = [
       '#db5a7c', // rose gold pink
       '#a22946', // ruby red
-      '#7f1d1d', // deep dark crimson
+      '#db2777', // vibrant deep pink
       '#f59eb5', // light blush pink
       '#f43f5e', // passionate rose
     ];
