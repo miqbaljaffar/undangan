@@ -1,15 +1,16 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { Mail, Calendar, MapPin } from 'lucide-react';
+import { Heart, Calendar, MapPin } from 'lucide-react';
 import { coupleInfo } from '../data';
 import useQueryParam from '../hooks/useQueryParam';
 import { formatIndonesianDate } from '../lib/dates';
 
 interface SplashCoverProps {
   onOpen: () => void;
+  isOpened?: boolean;
 }
 
-export default function SplashCover({ onOpen, isOpened }: SplashCoverProps) {
+export default function SplashCover({ onOpen }: SplashCoverProps) {
   const coverRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const monogramRef = useRef<HTMLDivElement>(null);
@@ -118,18 +119,18 @@ export default function SplashCover({ onOpen, isOpened }: SplashCoverProps) {
           {/* Subtle spinning gold dashed stroke around */}
           <div className="absolute inset-1 rounded-full border border-dashed border-luxury-gold/50 animate-[spin_50s_linear_infinite]" />
           <span className="font-serif text-2xl md:text-3xl text-luxury-gold uppercase tracking-[0.25em] pl-[0.25em]">
-            {coupleInfo.groom.nickName[0]}&{coupleInfo.bride.nickName[0]}
+            F&F
           </span>
         </div>
 
         {/* Title Group */}
         <div ref={titleRef} className="space-y-4">
           <p className="font-sans text-xs md:text-sm text-luxury-gold-light uppercase tracking-[0.3em] font-medium">
-            The Wedding Invitation of
+            Birthday Invitation & Celebration
           </p>
           
           <h1 className="font-serif text-4xl md:text-6xl text-luxury-ivory font-light py-2 tracking-wide leading-tight text-glow">
-            {coupleInfo.groom.nickName} <span className="font-accent text-luxury-gold text-5xl md:text-7xl block my-2">&</span> {coupleInfo.bride.nickName}
+            Fahira Ainun <span className="font-accent text-luxury-gold text-5xl md:text-7xl block my-2">Nissa</span>
           </h1>
 
           <div className="w-16 h-1px bg-linear-to-r from-transparent via-luxury-gold to-transparent mx-auto my-6" />
@@ -144,7 +145,7 @@ export default function SplashCover({ onOpen, isOpened }: SplashCoverProps) {
             </p>
             <div className="w-24 h-px bg-luxury-gold/20 mx-auto my-2" />
             <p className="font-sans text-[11px] text-luxury-cream/60 leading-relaxed italic">
-              Dengan penuh kehormatan kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam perayaan hari bahagia kami.
+              Dengan penuh kebahagiaan, saya mengundang Anda sekalian untuk bersama-sama merayakan pertambahan usia belahan jiwa saya, Fahira Ainun Nissa.
             </p>
           </div>
 
@@ -171,8 +172,8 @@ export default function SplashCover({ onOpen, isOpened }: SplashCoverProps) {
         >
           {/* Subtle golden shimmer gloss animation */}
           <span className="absolute inset-0 w-1/2 h-full bg-white/20 -skew-x-12 translate-x-[-150%] group-hover:animate-[shimmer_1.5s_infinite]" />
-          <Mail className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-          <span>Buka Undangan</span>
+          <Heart className="w-4 h-4 text-luxury-black fill-current transition-transform group-hover:scale-110" />
+          <span>Buka Surat Cinta & Undangan</span>
         </button>
       </div>
 

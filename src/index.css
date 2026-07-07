@@ -6,28 +6,28 @@
   --font-serif: "Cormorant Garamond", serif;
   --font-accent: "Great Vibes", cursive;
 
-  --color-luxury-black: #050505;
-  --color-luxury-dark: #121212;
-  --color-luxury-darker: #020202;
-  --color-luxury-gold: #D4AF37;
-  --color-luxury-gold-light: #fccd5d;
-  --color-luxury-gold-dark: #b18e24;
-  --color-luxury-cream: #eae2d5;
-  --color-luxury-ivory: #FDFCF0;
+  --color-luxury-black: #120205; /* Deep dark velvet crimson */
+  --color-luxury-dark: #1b0409; /* Dark velvet burgundy */
+  --color-luxury-darker: #0a0002; /* Deepest black crimson */
+  --color-luxury-gold: #db5a7c; /* Romantic Rose Gold */
+  --color-luxury-gold-light: #f59eb5; /* Light blush rose */
+  --color-luxury-gold-dark: #a22946; /* Ruby dark rose */
+  --color-luxury-cream: #ecd7da; /* Pinkish soft cream */
+  --color-luxury-ivory: #fff4f6; /* Pearl rose white */
 }
 
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 12px rgba(212, 175, 55, 0.4), 0 0 24px rgba(212, 175, 55, 0.2);
+    text-shadow: 0 0 12px rgba(219, 90, 124, 0.5), 0 0 24px rgba(219, 90, 124, 0.25);
   }
 
   .shadow-gold-glow {
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), 0 0 15px 1px rgba(212, 175, 55, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45), 0 0 15px 1px rgba(219, 90, 124, 0.08);
   }
 
   .glass-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 244, 246, 0.04);
+    border: 1px solid rgba(255, 244, 246, 0.09);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
@@ -37,7 +37,7 @@
   }
 
   .bg-luxury-radial {
-    background: radial-gradient(circle at center, #1c1810 0%, #050505 100%);
+    background: radial-gradient(circle at center, #2e0811 0%, #120205 100%);
   }
 
   .no-scrollbar::-webkit-scrollbar {
@@ -53,6 +53,18 @@
   .transition-luxury {
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
+
+  .heart-beat {
+    animation: heart-beat 1.6s infinite ease-in-out;
+  }
+}
+
+@keyframes heart-beat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.12); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.12); }
+  70% { transform: scale(1); }
 }
 
 /* Base custom styles to ensure premium touch responsiveness and custom typography overrides */

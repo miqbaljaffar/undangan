@@ -13,7 +13,7 @@ const initialWishes: RSVP[] = [
     name: "Raisa & Aditya",
     guests: 2,
     status: "hadir",
-    wish: "Selamat untuk Iqbal dan Fahira! Barakallahu laka wa baaraka 'alaika wa jama'a bainakuma fii khair. Semoga pernikahan ini dipenuhi mawaddah, warahmah, dan ketentraman selamanya.",
+    wish: "Barakallah fii umrik Fahira! Semoga panjang umur, sehat selalu, dan dilancarkan segala impiannya bersama Iqbal. Pesta makan malam romantisnya terdengar seru sekali!",
     createdAt: new Date(Date.now() - 4 * 3600 * 1000).toISOString() // 4 hours ago
   },
   {
@@ -21,7 +21,7 @@ const initialWishes: RSVP[] = [
     name: "Bima Seno Hadi",
     guests: 0,
     status: "tidak_hadir",
-    wish: "Sangat bahagia melihat kalian berdua bersanding! Mohon maaf belum bisa hadir langsung karena dinas di luar kota, doa terbaik kami panjatkan dari jauh untuk kebahagiaan paripurna kalian.",
+    wish: "Selamat ulang tahun Fahira! Doa terbaik dari Lembang. Mohon maaf belum bisa hadir langsung ke Orchid Forest karena tugas kedinasan. Semoga dilancarkan!",
     createdAt: new Date(Date.now() - 10 * 3600 * 1000).toISOString() // 10 hours ago
   },
   {
@@ -29,7 +29,7 @@ const initialWishes: RSVP[] = [
     name: "Sarah Amalia",
     guests: 1,
     status: "hadir",
-    wish: "Wow, selamat ya Iqbal dan Fahira! Lancar sampai hari H! Gak sabar mau hadir di pesta pernikahan megah & romantis kalian ini. See you!",
+    wish: "Happy Birthday my girl Fahira! Wish you all the best, makin cantik dan sukses terus. Can't wait to see you at Orchid Forest birthday party! See you!",
     createdAt: new Date(Date.now() - 24 * 3600 * 1000).toISOString() // 1 day ago
   }
 ];
@@ -120,17 +120,17 @@ export default function RSVPForm() {
       <div className="text-center max-w-2xl mx-auto space-y-4 mb-16 relative z-10">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-luxury-gold/20 bg-luxury-dark/60 text-luxury-gold text-xs font-sans tracking-widest uppercase mb-2">
           <HeartHandshake className="w-3.5 h-3.5" />
-          <span>Konfirmasi & Ucapan</span>
+          <span>Wishing Board & RSVP</span>
         </div>
         
         <h2 className="font-serif text-3xl md:text-5xl text-luxury-ivory font-light tracking-wide text-glow rsvp-animate-element">
-          Buku Tamu & RSVP
+          Papan Harapan & RSVP
         </h2>
         
         <div className="w-16 h-px bg-linear-to-r from-transparent via-luxury-gold to-transparent mx-auto rsvp-animate-element" />
         
         <p className="text-xs md:text-sm text-luxury-cream/70 font-sans max-w-md mx-auto leading-relaxed rsvp-animate-element">
-          Kehadiran dan untaian doa restu Anda akan melengkapi menyatunya lembaran takdir ikatan pernikahan suci kami.
+          Tinggalkan doa terhangat, ucapan manis, atau konfirmasi kehadiran Anda untuk merayakan hari ulang tahun Fahira bersama kami.
         </p>
       </div>
 
@@ -141,13 +141,13 @@ export default function RSVPForm() {
         <div className="rsvp-animate-element lg:col-span-5 glass-card p-6 md:p-8 rounded-2xl shadow-gold-glow relative">
           
           <h3 className="font-serif text-xl md:text-2xl text-luxury-ivory font-light mb-6 tracking-wide pb-3 border-b border-luxury-gold/10">
-            Form Kehadiran
+            Tulis Doa & Konfirmasi
           </h3>
 
           {submitSuccess && (
             <div className="mb-6 p-4 rounded bg-luxury-gold/10 border border-luxury-gold/30 flex items-center gap-2.5 text-luxury-gold text-xs font-sans">
               <CheckCircle className="w-4 h-4 shrink-0" />
-              <span>Terima kasih! RSVP dan doa restu Anda telah terekam dengan sukses.</span>
+              <span>Terima kasih! Ucapan dan RSVP Anda telah berhasil dikirim.</span>
             </div>
           )}
 
@@ -182,8 +182,8 @@ export default function RSVPForm() {
                 onChange={handleChange}
                 className="w-full px-4 py-3 bg-luxury-black/60 border border-luxury-gold/20 focus:border-luxury-gold rounded text-luxury-ivory focus:outline-none transition-colors"
               >
-                <option value="hadir">Sangat Senang, Saya Akan Hadir</option>
-                <option value="tidak_hadir">Berhalangan, Doa Saya Menyertai</option>
+                <option value="hadir">Sangat Senang, Saya Akan Hadir Merayakan</option>
+                <option value="tidak_hadir">Berhalangan, Kirim Doa dari Jauh</option>
               </select>
             </div>
 
@@ -213,14 +213,14 @@ export default function RSVPForm() {
             {/* 4. Blessings wish message textarea */}
             <div className="space-y-1.5">
               <label htmlFor="wish-input" className="block text-luxury-cream/80 text-[11px] font-semibold uppercase tracking-wider">
-                Ucapan Doa & Harapan Kasih
+                Ucapan Selamat Ulang Tahun & Doa
               </label>
               <textarea
                 id="wish-input"
                 name="wish"
                 required
                 rows={4}
-                placeholder="Tuliskan ucapan selamat terindah serta doa tulus Anda..."
+                placeholder="Tuliskan ucapan selamat ulang tahun terindah serta doa tulusmu di sini..."
                 value={formData.wish}
                 onChange={handleChange}
                 className="w-full px-4 py-3 bg-luxury-black/60 border border-luxury-gold/20 focus:border-luxury-gold rounded text-luxury-ivory placeholder-luxury-cream/30 focus:outline-none transition-colors resize-none"
@@ -235,7 +235,7 @@ export default function RSVPForm() {
               id="btn-submit-rsvp"
             >
               <Send className={`w-3.5 h-3.5 ${isSubmitting ? 'animate-pulse' : ''}`} />
-              <span>{isSubmitting ? 'Mengirim RSVP...' : 'Kirim RSVP'}</span>
+              <span>{isSubmitting ? 'Mengirim Ucapan...' : 'Kirim Ucapan'}</span>
             </button>
 
           </form>
@@ -247,10 +247,10 @@ export default function RSVPForm() {
           <div className="flex items-center justify-between pb-4 border-b border-luxury-gold/10 mb-6 sticky top-0 bg-luxury-dark/95 backdrop-blur z-20 py-1">
             <h3 className="font-serif text-xl text-luxury-ivory font-light tracking-wide flex items-center gap-2">
               <MessageSquare className="w-5 h-5 text-luxury-gold" />
-              <span>Tamu yang Mengucapkan</span>
+              <span>Harapan & Doa Hangat</span>
             </h3>
             <span className="font-sans text-[11px] text-luxury-gold font-semibold uppercase bg-luxury-gold/10 rounded-full px-3 py-1">
-              {wishes.length} Doa
+              {wishes.length} Ucapan
             </span>
           </div>
 

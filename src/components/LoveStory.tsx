@@ -87,14 +87,14 @@ export default function LoveStory() {
           <Sparkles className="w-4 h-4 text-luxury-gold" />
         </div>
         <p className="font-sans text-xs text-luxury-gold uppercase tracking-[0.3em] font-medium">
-          Kisah Indah Kami
+          Kisah Cinta & Momen Manis
         </p>
         <h2 className="font-serif text-3xl md:text-5xl text-luxury-ivory font-light tracking-wide text-glow">
-          Our Love Story
+          Our Beautiful Journey
         </h2>
         <div className="w-16 h-px bg-linear-to-r from-transparent via-luxury-gold to-transparent mx-auto" />
         <p className="text-xs md:text-sm text-luxury-cream/70 font-sans max-w-sm mx-auto leading-relaxed">
-          Bagaimana takdir merajut jemari kami, menempuh perjalanan penuh kasih menuju gerbang pernikahan.
+          Kilas balik perjalanan rasa yang penuh kehangatan, tawa, dan komitmen suci yang tumbuh seiring berjalannya waktu.
         </p>
       </div>
 

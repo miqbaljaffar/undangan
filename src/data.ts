@@ -1,28 +1,29 @@
 import { CoupleInfo, LoveStoryEvent, EventDetail, GalleryItem, BankAccount } from './types';
 
+// Set birthday date to 10 days in the future from July 7, 2026 -> July 17, 2026
 export const coupleInfo: CoupleInfo = {
   groom: {
     fullName: "Mohammad Iqbal Jaffar",
     nickName: "Iqbal",
-    fatherName: "Bpk. Laksmana Samudra",
-    motherName: "Ibu Kencana Kirana",
+    fatherName: "Kekasih Hati Fahira",
+    motherName: "Pemberi Kejutan Spesial",
     instagram: "https://instagram.com/mohammad_iqbal",
     photo: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800"
   },
   bride: {
     fullName: "Fahira Ainun Nissa",
     nickName: "Fahira",
-    fatherName: "Bpk. Handoko Wirawan",
-    motherName: "Ibu Arum Sekarwangi",
+    fatherName: "Sang Ratu Hari Ini",
+    motherName: "Pemilik Senyuman Terindah",
     instagram: "https://instagram.com/fahira_ainun",
     photo: "https://images.unsplash.com/photo-1549417229-aa67d3263c09?auto=format&fit=crop&q=80&w=800"
   },
-  weddingDate: "2026-10-10T09:00:00.000Z" // October 10, 2026
+  weddingDate: "2026-07-17T19:00:00.000Z" // Fahira's Birthday Celebration
 };
 
 export const romanceQuote = {
-  text: "“Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang.”",
-  source: "QS. Ar-Rum: 21"
+  text: "“Aku mencintaimu bukan hanya karena siapa dirimu saat bersamaku, melainkan karena keindahan hidup yang kurasakan bersamamu. Setiap pertambahan usiamu adalah anugerah terindah bagiku, dan aku bersyukur kepada Tuhan atas kelahiranmu di bumi.”",
+  source: "Iqbal untuk Fahira"
 };
 
 export const loveStoryEvents: LoveStoryEvent[] = [
@@ -34,13 +35,13 @@ export const loveStoryEvents: LoveStoryEvent[] = [
   },
   {
     year: "2024",
-    title: "Ikatan Rasa",
-    description: "Setelah dua tahun merangkai tawa, berbagi impian, dan saling menguatkan dalam doa, kami memutuskan untuk berkomitmen melangkah ke jenjang yang lebih serius demi menyatukan cita-cita.",
+    title: "Ikatan Komitmen",
+    description: "Setelah dua tahun merangkai tawa, berbagi impian, dan saling menguatkan dalam doa, kami memutuskan berkomitmen menyatukan cita-cita demi hubungan yang diredhai-Nya.",
     image: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=800"
   },
   {
     year: "2025",
-    title: "Sebuah Lamaran",
+    title: "Lamaran Penuh Haru",
     description: "Di bawah cahaya hangat temaram keemasan, Iqbal melamar Fahira untuk bersamanya selamanya. Dengan air mata kebahagiaan dan kepastian hati, jawaban 'Ya' terucap tulus dari lubuk jiwa.",
     image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800"
   }
@@ -48,23 +49,23 @@ export const loveStoryEvents: LoveStoryEvent[] = [
 
 export const weddingEvents: EventDetail[] = [
   {
-    title: "Akad Nikah",
-    date: "Sabtu, 10 Oktober 2026",
-    time: "08:00 - 10:00 WIB",
-    venue: "Bandung Convention Center",
-    address: "Bandung, Jawa Barat",
-    mapsUrl: "https://www.google.com/maps/search/Bandung+Jawa+Barat",
-    mapsEmbedUrl: "https://www.google.com/maps?q=Bandung+Jawa+Barat&output=embed",
+    title: "Romantic Dinner",
+    date: "Jumat, 17 Juli 2026",
+    time: "19:00 - 21:00 WIB",
+    venue: "The Peak Resort Dining",
+    address: "Jl. Sersan Bajuri No.72, Lembang, Bandung",
+    mapsUrl: "https://www.google.com/maps/search/The+Peak+Resort+Dining+Bandung",
+    mapsEmbedUrl: "https://www.google.com/maps?q=The+Peak+Resort+Dining+Bandung&output=embed",
     icon: "Heart"
   },
   {
-    title: "Resepsi Pernikahan",
-    date: "Sabtu, 10 Oktober 2026",
-    time: "11:00 - 14:00 WIB",
-    venue: "Bandung Convention Center",
-    address: "Bandung, Jawa Barat",
-    mapsUrl: "https://www.google.com/maps/search/Bandung+Jawa+Barat",
-    mapsEmbedUrl: "https://www.google.com/maps?q=Bandung+Jawa+Barat&output=embed",
+    title: "Birthday Gathering",
+    date: "Sabtu, 18 Juli 2026",
+    time: "15:00 - 18:00 WIB",
+    venue: "Orchid Forest Cikole",
+    address: "Cikole, Lembang, Kabupaten Bandung Barat, Jawa Barat",
+    mapsUrl: "https://www.google.com/maps/search/Orchid+Forest+Cikole",
+    mapsEmbedUrl: "https://www.google.com/maps?q=Orchid+Forest+Cikole&output=embed",
     icon: "Sparkles"
   }
 ];
@@ -118,7 +119,7 @@ export const digitalGifts: BankAccount[] = [
   {
     bankName: "Bank Mandiri",
     accountNumber: "1420019283733",
-    accountHolder: "Mohammad Iqbal Jaffar",
+    accountHolder: "Fahira Ainun Nissa",
     icon: "CreditCard"
   }
 ];

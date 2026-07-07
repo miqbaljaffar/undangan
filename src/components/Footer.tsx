@@ -16,22 +16,22 @@ export default function Footer() {
         <div className="w-14 h-14 rounded-full border border-luxury-gold/30 flex items-center justify-center bg-luxury-black mx-auto relative shadow-gold-glow">
           <div className="absolute inset-0.5 rounded-full border border-dashed border-luxury-gold/30 animate-[spin_80s_linear_infinite]" />
           <span className="font-serif text-sm text-luxury-gold uppercase tracking-wider pl-[0.1em]">
-            {coupleInfo.groom.nickName[0]}&{coupleInfo.bride.nickName[0]}
+            F&I
           </span>
         </div>
 
         <p className="font-serif text-xs md:text-sm text-luxury-gold uppercase tracking-[0.3em] font-medium pt-2">
-          Terima Kasih Banyak
+          Dengan Penuh Cinta
         </p>
 
         <h2 className="font-serif text-3xl md:text-4xl text-luxury-ivory font-light tracking-wide text-glow">
-          {coupleInfo.groom.nickName} & {coupleInfo.bride.nickName}
+          Fahira & Iqbal
         </h2>
 
         <div className="w-24 h-px bg-linear-to-r from-transparent via-luxury-gold to-transparent mx-auto" />
 
         <p className="font-sans text-xs text-luxury-cream/65 leading-relaxed max-w-sm mx-auto">
-          Merupakan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i sekalian berkenan hadir dan memberikan doa restu kepada kami kedua mempelai.
+          Aku bersyukur atas kehadiranmu di bumi ini, mendampingi setiap langkahku dengan cinta. Selamat ulang tahun, Fahira Ainun Nissa.
         </p>
 
         {/* Dynamic credit label avoiding logs or unneeded tech clutter */}
@@ -41,7 +41,7 @@ export default function Footer() {
             <Heart className="w-3 h-3 text-luxury-gold animate-[pulse_1.5s_infinite]" />
             <span>untuk Momen Bahagia</span>
           </div>
-          <p className="font-serif italic text-luxury-gold/50">Copyright © 2026 {coupleInfo.groom.nickName} & {coupleInfo.bride.nickName} - All Rights Reserved.</p>
+          <p className="font-serif italic text-luxury-gold/50">Copyright © 2026 Fahira & Iqbal - All Rights Reserved.</p>
         </div>
       </div>
     </footer>

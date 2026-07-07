@@ -53,17 +53,17 @@ export default function GiftSection() {
       <div className="text-center max-w-2xl mx-auto space-y-4 mb-20 relative z-10">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full glass-card text-luxury-gold text-xs font-sans tracking-widest uppercase mb-2">
           <Gift className="w-3.5 h-3.5" />
-          <span>Kirim Tanda Kasih</span>
+          <span>Kado Kasih Sayang</span>
         </div>
         
         <h2 className="font-serif text-3xl md:text-5xl text-luxury-ivory font-light tracking-wide text-glow gift-animate-element">
-          Wedding Gift
+          Birthday Gift
         </h2>
         
         <div className="w-16 h-px bg-linear-to-r from-transparent via-luxury-gold to-transparent mx-auto gift-animate-element" />
         
         <p className="text-xs md:text-sm text-luxury-cream/70 font-sans max-w-md mx-auto leading-relaxed gift-animate-element">
-          Doa restu Anda adalah karunia paling berarti bagi kami. Namun jika Anda ingin mengirimkan tanda kasih digital, kami menyediakan gerbang amplop digital berikut.
+          Doa tulus Anda adalah hadiah terindah bagi pertambahan usia Fahira. Namun jika Anda ingin mengirimkan kado digital, kami menyediakan gerbang amplop digital berikut.
         </p>
       </div>
 
@@ -83,7 +83,7 @@ export default function GiftSection() {
                 {/* Bank badge title */}
                 <div className="space-y-1">
                   <span className="text-[10px] font-sans text-luxury-gold uppercase tracking-[0.2em] font-bold block">
-                    Digital Envelope
+                    Birthday Gift Envelope
                   </span>
                   <p className="font-serif text-lg text-luxury-ivory font-semibold tracking-wide">
                     {gift.bankName}

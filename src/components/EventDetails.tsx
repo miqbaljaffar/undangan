@@ -52,12 +52,11 @@ export default function EventDetails() {
   }, []);
 
   const handleSaveToCalendar = () => {
-    // Generate valid Google Calendar event addition URL for October 10, 2026
-    // Akad + Reception is from 08:00 WIB to 14:00 WIB (01:00 UTC to 07:00 UTC)
-    const title = encodeURIComponent("Pernikahan Iqbal & Fahira");
-    const dates = "20261010T010000Z/20261010T070000Z"; // UTC Date
-    const details = encodeURIComponent("Kehadiran Anda adalah suatu kehormatan dan kebahagiaan bagi kami. Mari bersama merayakan persatuan cinta suci Iqbal & Fahira.");
-    const location = encodeURIComponent("Bandung, Jawa Barat");
+    // Generate valid Google Calendar event addition URL for July 17, 2026
+    const title = encodeURIComponent("Perayaan Ulang Tahun Fahira Ainun Nissa");
+    const dates = "20260717T120000Z/20260717T140000Z"; // UTC Date
+    const details = encodeURIComponent("Kehadiran Anda adalah kehormatan bagi kami. Mari bersama merayakan hari kelahiran belahan jiwa saya, Fahira Ainun Nissa.");
+    const location = encodeURIComponent("The Peak Resort Dining, Lembang, Bandung");
     
     const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}`;
     
@@ -77,17 +76,17 @@ export default function EventDetails() {
       <div className="text-center max-w-2xl mx-auto space-y-4 mb-20 relative z-10">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full glass-card text-luxury-gold text-xs font-sans tracking-widest uppercase mb-2">
           <CalendarDays className="w-3.5 h-3.5" />
-          <span>Agenda Bahagia</span>
+          <span>Agenda Perayaan</span>
         </div>
         
         <h2 className="font-serif text-3xl md:text-5xl text-luxury-ivory font-light tracking-wide text-glow event-animate-header">
-          Detail Acara
+          Detail Perayaan
         </h2>
         
         <div className="w-16 h-px bg-linear-to-r from-transparent via-luxury-gold to-transparent mx-auto event-animate-header" />
         
         <p className="text-xs md:text-sm text-luxury-cream/70 font-sans max-w-md mx-auto leading-relaxed event-animate-header">
-          Merupakan suatu kehormatan dan kebahagiaan luar biasa bagi kami sekeluarga apabila Bapak/Ibu sekalian berkenan meluangkan waktu memberikan doa restu.
+          Kehadiran dan doa restu yang tulus dari keluarga serta sahabat dekat akan menyertai momen indah pertambahan usia Fahira.
         </p>
       </div>
 
@@ -115,7 +114,7 @@ export default function EventDetails() {
               <div>
                 {/* Accent Tag */}
                 <span className="font-sans text-[10px] md:text-xs text-luxury-gold font-semibold uppercase tracking-[0.2em]">
-                  {index === 0 ? "Momentum Suci" : "Syukuran Bahagia"}
+                  {index === 0 ? "Dinner Romantis" : "Pesta Ulang Ulang Tahun"}
                 </span>
 
                 <h3 className="font-serif text-2xl md:text-3xl text-luxury-ivory font-light mt-2 mb-6 tracking-wide text-glow">

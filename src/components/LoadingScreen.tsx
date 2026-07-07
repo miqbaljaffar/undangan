@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { Sparkles } from 'lucide-react';
+import { Heart } from 'lucide-react';
 import gsap from 'gsap';
 import useBodyScrollLock from '../hooks/useBodyScrollLock';
 
@@ -54,16 +54,16 @@ export default function LoadingScreen() {
 
       <div className="text-center space-y-6 relative z-10">
         {/* Monogram circle */}
-        <div className="w-16 h-16 rounded-full border border-luxury-gold/25 flex items-center justify-center bg-luxury-black/80 mx-auto relative shadow-gold-glow animate-[pulse_2s_infinite]">
-          <Sparkles className="w-5 h-5 text-luxury-gold animate-[spin_10s_linear_infinite]" />
+        <div className="w-16 h-16 rounded-full border border-luxury-gold/25 flex items-center justify-center bg-luxury-black/80 mx-auto relative shadow-gold-glow">
+          <Heart className="w-6 h-6 text-luxury-gold heart-beat" fill="currentColor" />
         </div>
 
         <div className="space-y-1">
           <p className="font-sans text-[10px] text-luxury-gold uppercase tracking-[0.35em] font-medium pl-[0.35em]">
-            Digital Invitation
+            Romantic Birthday Note
           </p>
           <h2 className="font-serif text-xl text-luxury-ivory font-light tracking-widest uppercase">
-            Iqbal & Fahira
+            Fahira & Iqbal
           </h2>
         </div>
 
@@ -76,7 +76,7 @@ export default function LoadingScreen() {
         </div>
 
         <p className="font-sans text-[10px] text-luxury-cream/40 tracking-[0.2em] uppercase pl-[0.2em]">
-          Membuka Lembaran Cinta... {progress}%
+          Menyiapkan Kejutan Romantis... {progress}%
         </p>
       </div>
     </div>

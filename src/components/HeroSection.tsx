@@ -79,7 +79,7 @@ export default function HeroSection() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="text-xs md:text-sm text-luxury-gold uppercase tracking-[0.4em] font-medium"
         >
-          Walimatul 'Urs
+          Happy Birthday, My Love
         </motion.p>
         <motion.h2 
           initial={{ opacity: 0, scale: 0.95 }}
@@ -88,7 +88,7 @@ export default function HeroSection() {
           transition={{ duration: 1.2, delay: 0.2 }}
           className="font-serif text-3xl md:text-5xl text-luxury-ivory font-light tracking-wide text-glow"
         >
-          Pernikahan Agung
+          Hari Lahir Terindah
         </motion.h2>
         <div className="w-12 h-px bg-luxury-gold mx-auto my-4" />
         <motion.p 
@@ -98,7 +98,7 @@ export default function HeroSection() {
           transition={{ duration: 1.5, delay: 0.4 }}
           className="font-serif italic text-sm md:text-base text-luxury-cream/80 max-w-lg mx-auto leading-relaxed"
         >
-          Menaungi ikatan janji suci dwi rasa, meniti mahligai ridho-Nya di dunia dan keabadian.
+          Merayakan pertambahan usia sosok tercinta yang membawa sejuta kehangatan, kebahagiaan, dan kedamaian dalam hidupku.
         </motion.p>
       </div>
 
@@ -134,11 +134,11 @@ export default function HeroSection() {
               {coupleInfo.groom.fullName}
             </h3>
             <p className="font-sans text-xs text-luxury-gold/70 uppercase tracking-widest">
-              — Putra dari Keluarga
+              — Pengirim Kejutan Cinta
             </p>
             <div className="text-sm text-luxury-cream/80 leading-relaxed font-serif italic">
-              <p>{coupleInfo.groom.fatherName}</p>
-              <p>& {coupleInfo.groom.motherName}</p>
+              <p>Kekasih Hati Fahira</p>
+              <p>& Pembuat Web Kejutan Ini</p>
             </div>
             
             <a 
@@ -182,11 +182,11 @@ export default function HeroSection() {
               {coupleInfo.bride.fullName}
             </h3>
             <p className="font-sans text-xs text-luxury-gold/70 uppercase tracking-widest">
-              — Putri dari Keluarga
+              — Ratu yang Berulang Tahun
             </p>
             <div className="text-sm text-luxury-cream/80 leading-relaxed font-serif italic">
-              <p>{coupleInfo.bride.fatherName}</p>
-              <p>& {coupleInfo.bride.motherName}</p>
+              <p>Belahan Jiwa Iqbal</p>
+              <p>& Pemilik Senyuman Terindah</p>
             </div>
 
             <a 
@@ -226,7 +226,7 @@ export default function HeroSection() {
       >
         <div className="flex items-center justify-center gap-2 text-xs text-luxury-gold uppercase tracking-[0.25em] mb-6 font-medium">
           <CalendarClock className="w-4 h-4" />
-          <span>Menghitung Hari Bahagia</span>
+          <span>Menuju Hari Perayaan Spesial</span>
         </div>
 
         {/* Digit boxes in bento layout */}
