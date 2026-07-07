@@ -70,7 +70,6 @@ export default function SplashCover({ onOpen }: SplashCoverProps) {
     }, '-=0.4');
   };
 
-  const guestName = useQueryParam('to', 'Tamu Undangan Terhormat');
   const formattedDate = formatIndonesianDate(coupleInfo.weddingDate);
 
   return (
@@ -114,43 +113,41 @@ export default function SplashCover({ onOpen }: SplashCoverProps) {
         {/* Monogram Circle Badge */}
         <div 
           ref={monogramRef}
-          className="mb-8 w-20 h-20 md:w-24 md:h-24 rounded-full border border-luxury-gold/40 flex items-center justify-center bg-luxury-black/60 shadow-gold-glow relative group"
+          className="mb-8 w-20 h-20 md:w-24 md:h-24 rounded-full border border-luxury-gold/30 flex items-center justify-center bg-luxury-black/60 shadow-gold-glow relative group"
         >
-          {/* Subtle spinning gold dashed stroke around */}
-          <div className="absolute inset-1 rounded-full border border-dashed border-luxury-gold/50 animate-[spin_50s_linear_infinite]" />
           <span className="font-serif text-2xl md:text-3xl text-luxury-gold uppercase tracking-[0.25em] pl-[0.25em]">
-            F&F
+            F&I
           </span>
         </div>
 
         {/* Title Group */}
         <div ref={titleRef} className="space-y-4">
-          <p className="font-sans text-xs md:text-sm text-luxury-gold-light uppercase tracking-[0.3em] font-medium">
-            Birthday Invitation & Celebration
+          <p className="font-sans text-xs text-luxury-gold-light uppercase tracking-[0.35em] font-medium">
+            Birthday Surprise Card
           </p>
           
-          <h1 className="font-serif text-4xl md:text-6xl text-luxury-ivory font-light py-2 tracking-wide leading-tight text-glow">
-            Fahira Ainun <span className="font-accent text-luxury-gold text-5xl md:text-7xl block my-2">Nissa</span>
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-luxury-ivory font-light py-2 tracking-wide leading-tight text-glow">
+            Fahira Ainun Nissa
           </h1>
 
           <div className="w-16 h-1px bg-linear-to-r from-transparent via-luxury-gold to-transparent mx-auto my-6" />
 
-          {/* Invitation target for guest (dynamic info) */}
+          {/* Love Note cover card addressed to Fahira */}
           <div className="glass-card rounded-2xl p-6.5 my-6 shadow-gold-glow max-w-sm mx-auto">
             <p className="font-sans text-xs text-luxury-gold/80 uppercase tracking-widest mb-1">
-              Dear Special Guest,
+              Untuk Kamu,
             </p>
             <p className="font-serif text-lg text-luxury-ivory font-semibold capitalize my-1">
-              {guestName}
+              Fahira Ainun Nissa
             </p>
             <div className="w-24 h-px bg-luxury-gold/20 mx-auto my-2" />
-            <p className="font-sans text-[11px] text-luxury-cream/60 leading-relaxed italic">
-              Dengan penuh kebahagiaan, saya mengundang Anda sekalian untuk bersama-sama merayakan pertambahan usia belahan jiwa saya, Fahira Ainun Nissa.
+            <p className="font-sans text-xs text-luxury-cream/80 leading-relaxed">
+              Hi Fahira, aku bikin halaman web ini khusus buat ngerayain hari lahir kamu. Dibuka ya kejutannya!
             </p>
           </div>
 
           {/* Info Date & Location Badge */}
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs md:text-sm text-luxury-cream/80 tracking-wide font-sans mt-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-luxury-cream/80 tracking-wide font-sans mt-4">
             <div className="flex items-center gap-1.5">
               <Calendar className="w-3.5 h-3.5 text-luxury-gold" />
               <span>{formattedDate}</span>
@@ -158,7 +155,7 @@ export default function SplashCover({ onOpen }: SplashCoverProps) {
             <div className="hidden sm:block text-luxury-gold/40">•</div>
             <div className="flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5 text-luxury-gold" />
-              <span>Bandung, Indonesia</span>
+              <span>Lembang, Bandung</span>
             </div>
           </div>
         </div>
@@ -170,10 +167,9 @@ export default function SplashCover({ onOpen }: SplashCoverProps) {
           className="mt-10 w-full sm:w-auto px-8 py-3.5 bg-luxury-gold hover:bg-luxury-gold-light text-luxury-black font-sans uppercase text-xs font-semibold tracking-[0.2em] rounded shadow-gold-glow transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] group inline-flex items-center justify-center gap-2.5 cursor-pointer relative overflow-hidden"
           id="btn-open-invitation"
         >
-          {/* Subtle golden shimmer gloss animation */}
           <span className="absolute inset-0 w-1/2 h-full bg-white/20 -skew-x-12 translate-x-[-150%] group-hover:animate-[shimmer_1.5s_infinite]" />
           <Heart className="w-4 h-4 text-luxury-black fill-current transition-transform group-hover:scale-110" />
-          <span>Buka Surat Cinta & Undangan</span>
+          <span>Buka Kejutannya ♥</span>
         </button>
       </div>
 

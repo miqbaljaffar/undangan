@@ -20,7 +20,7 @@ export interface GalleryItem {
   id: number;
   url: string;
   caption: string;
-  category: 'romantic' | 'ceremony' | 'prewedding';
+  category: 'kita' | 'kamu' | 'memori';
 }
 
 export interface CoupleInfo {

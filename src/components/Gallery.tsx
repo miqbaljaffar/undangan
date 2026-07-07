@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Gallery() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [filter, setFilter] = useState<'all' | 'romantic' | 'ceremony' | 'prewedding'>('all');
+  const [filter, setFilter] = useState<'all' | 'kita' | 'kamu' | 'memori'>('all');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   useBodyScrollLock(lightboxIndex !== null);
 
@@ -86,7 +86,7 @@ export default function Gallery() {
         
         {/* Category Filters */}
         <div className="flex flex-wrap items-center justify-center gap-2 mt-8 z-10 gallery-animate-header">
-          {(['all', 'romantic', 'ceremony', 'prewedding'] as const).map((cat) => (
+          {(['all', 'kita', 'kamu', 'memori'] as const).map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
@@ -96,7 +96,7 @@ export default function Gallery() {
                   : 'glass-card text-luxury-cream/70 hover:border-luxury-gold/30 hover:text-white hover:bg-white/10'
               }`}
             >
-              {cat === 'all' ? 'Semua' : cat === 'romantic' ? 'Romantis' : cat === 'ceremony' ? 'Momen Indah' : 'Kisah Kita'}
+              {cat === 'all' ? 'Semua' : cat === 'kita' ? 'Kita' : cat === 'kamu' ? 'Kamu (Fahira)' : 'Memori'}
             </button>
           ))}
         </div>
@@ -122,7 +122,7 @@ export default function Gallery() {
                 {/* Ambient Elegant Hover Overlay */}
                 <div className="absolute inset-0 bg-linear-to-t from-luxury-black via-luxury-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5">
                   <span className="text-[10px] font-sans text-luxury-gold uppercase tracking-widest font-semibold block mb-1">
-                    {item.category === 'romantic' ? 'Romantis' : item.category === 'ceremony' ? 'Momen Indah' : 'Kisah Kita'}
+                    {item.category === 'kita' ? 'Kita' : item.category === 'kamu' ? 'Kamu' : 'Memori'}
                   </span>
                   <h4 className="font-serif text-base text-luxury-ivory font-light tracking-wide transform translate-y-3 group-hover:translate-y-0 transition-transform duration-500">
                     {item.caption}
@@ -144,7 +144,7 @@ export default function Gallery() {
           <div className="absolute top-6 left-6 right-6 flex items-center justify-between text-luxury-cream text-xs font-sans">
             <div>
               <span className="text-luxury-gold uppercase tracking-widest font-semibold mr-2">
-                {filteredItems[lightboxIndex].category === 'romantic' ? 'Romantis' : filteredItems[lightboxIndex].category === 'ceremony' ? 'Momen Indah' : 'Kisah Kita'}
+                {filteredItems[lightboxIndex].category === 'kita' ? 'Kita' : filteredItems[lightboxIndex].category === 'kamu' ? 'Kamu' : 'Memori'}
               </span>
               <span className="opacity-60">
                 {lightboxIndex + 1} / {filteredItems.length}

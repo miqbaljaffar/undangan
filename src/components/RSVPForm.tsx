@@ -77,34 +77,31 @@ export default function RSVPForm() {
 
     setIsSubmitting(true);
 
-    // Simulate real database write delay
-    setTimeout(() => {
-      const newRSVP: RSVP = {
-        id: Date.now().toString(),
-        name: formData.name.trim(),
-        guests: formData.status === 'hadir' ? parseInt(formData.guests) : 0,
-        status: formData.status as 'hadir' | 'tidak_hadir',
-        wish: formData.wish.trim(),
-        createdAt: new Date().toISOString()
-      };
+    const newRSVP: RSVP = {
+      id: Date.now().toString(),
+      name: formData.name.trim(),
+      guests: 1,
+      status: 'hadir',
+      wish: formData.wish.trim(),
+      createdAt: new Date().toISOString()
+    };
 
-      const updatedWishes = [newRSVP, ...wishes];
-      setWishes(updatedWishes);
-      localStorage.setItem('wedding_rsvps', JSON.stringify(updatedWishes));
+    const updatedWishes = [newRSVP, ...wishes];
+    setWishes(updatedWishes);
+    localStorage.setItem('wedding_rsvps', JSON.stringify(updatedWishes));
 
-      // Reset Form fields
-      setFormData({
-        name: '',
-        guests: '1',
-        status: 'hadir',
-        wish: ''
-      });
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
+    // Reset Form fields
+    setFormData({
+      name: '',
+      guests: '1',
+      status: 'hadir',
+      wish: ''
+    });
+    setIsSubmitting(false);
+    setSubmitSuccess(true);
 
-      // Hide success state after 4 seconds
-      setTimeout(() => setSubmitSuccess(false), 4000);
-    }, 1200);
+    // Hide success state after 4 seconds
+    setTimeout(() => setSubmitSuccess(false), 4000);
   };
 
   return (
@@ -141,13 +138,13 @@ export default function RSVPForm() {
         <div className="rsvp-animate-element lg:col-span-5 glass-card p-6 md:p-8 rounded-2xl shadow-gold-glow relative">
           
           <h3 className="font-serif text-xl md:text-2xl text-luxury-ivory font-light mb-6 tracking-wide pb-3 border-b border-luxury-gold/10">
-            Tulis Doa & Konfirmasi
+            Kirim Doa & Harapan
           </h3>
 
           {submitSuccess && (
             <div className="mb-6 p-4 rounded bg-luxury-gold/10 border border-luxury-gold/30 flex items-center gap-2.5 text-luxury-gold text-xs font-sans">
               <CheckCircle className="w-4 h-4 shrink-0" />
-              <span>Terima kasih! Ucapan dan RSVP Anda telah berhasil dikirim.</span>
+              <span>Terima kasih! Ucapan selamat ulang tahun Anda telah terekam dengan indah.</span>
             </div>
           )}
 
@@ -156,7 +153,7 @@ export default function RSVPForm() {
             {/* 1. Name Input */}
             <div className="space-y-1.5">
               <label htmlFor="name-input" className="block text-luxury-cream/80 text-[11px] font-semibold uppercase tracking-wider">
-                Nama Lengkap
+                Nama Pengirim
               </label>
               <input
                 id="name-input"
@@ -170,47 +167,7 @@ export default function RSVPForm() {
               />
             </div>
 
-            {/* 2. Status Select */}
-            <div className="space-y-1.5">
-              <label htmlFor="status-input" className="block text-luxury-cream/80 text-[11px] font-semibold uppercase tracking-wider">
-                Konfirmasi Kehadiran
-              </label>
-              <select
-                id="status-input"
-                name="status"
-                value={formData.status}
-                onChange={handleChange}
-                className="w-full px-4 py-3 bg-luxury-black/60 border border-luxury-gold/20 focus:border-luxury-gold rounded text-luxury-ivory focus:outline-none transition-colors"
-              >
-                <option value="hadir">Sangat Senang, Saya Akan Hadir Merayakan</option>
-                <option value="tidak_hadir">Berhalangan, Kirim Doa dari Jauh</option>
-              </select>
-            </div>
-
-            {/* 3. Companions Guests Select */}
-            {formData.status === 'hadir' && (
-              <div className="space-y-1.5 transition-all duration-300">
-                <label htmlFor="guests-input" className="block text-luxury-cream/80 text-[11px] font-semibold uppercase tracking-wider">
-                  Jumlah Tamu Kehadiran
-                </label>
-                <div className="relative">
-                  <select
-                    id="guests-input"
-                    name="guests"
-                    value={formData.guests}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-luxury-black/60 border border-luxury-gold/20 focus:border-luxury-gold rounded text-luxury-ivory focus:outline-none transition-colors appearance-none"
-                  >
-                    {[1, 2, 3, 4, 5].map(n => (
-                      <option key={n} value={n}>{n} Orang</option>
-                    ))}
-                  </select>
-                  <Users className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-luxury-gold/60 pointer-events-none" />
-                </div>
-              </div>
-            )}
-
-            {/* 4. Blessings wish message textarea */}
+            {/* 2. Blessings wish message textarea */}
             <div className="space-y-1.5">
               <label htmlFor="wish-input" className="block text-luxury-cream/80 text-[11px] font-semibold uppercase tracking-wider">
                 Ucapan Selamat Ulang Tahun & Doa
@@ -219,7 +176,7 @@ export default function RSVPForm() {
                 id="wish-input"
                 name="wish"
                 required
-                rows={4}
+                rows={5}
                 placeholder="Tuliskan ucapan selamat ulang tahun terindah serta doa tulusmu di sini..."
                 value={formData.wish}
                 onChange={handleChange}
@@ -280,15 +237,6 @@ export default function RSVPForm() {
                         </span>
                         <span className="text-[9px] text-luxury-cream/40">{dateRelative}</span>
                       </div>
-
-                      {/* Presence badge */}
-                      <span className={`text-[9px] uppercase tracking-widest px-2.5 py-0.5 rounded-full font-medium shrink-0 ${
-                        item.status === 'hadir' 
-                          ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/15' 
-                          : 'bg-rose-500/10 text-rose-400 border border-rose-500/15'
-                      }`}>
-                        {item.status === 'hadir' ? `Hadir (${item.guests})` : 'Tidak Hadir'}
-                      </span>
                     </div>
 
                     <p className="font-sans text-xs text-luxury-cream/80 leading-relaxed italic text-justify">

@@ -79,7 +79,7 @@ export default function HeroSection() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="text-xs md:text-sm text-luxury-gold uppercase tracking-[0.4em] font-medium"
         >
-          Happy Birthday, My Love
+          Fahira Ainun Nissa
         </motion.p>
         <motion.h2 
           initial={{ opacity: 0, scale: 0.95 }}
@@ -88,7 +88,7 @@ export default function HeroSection() {
           transition={{ duration: 1.2, delay: 0.2 }}
           className="font-serif text-3xl md:text-5xl text-luxury-ivory font-light tracking-wide text-glow"
         >
-          Hari Lahir Terindah
+          Happy Birthday, Fahira!
         </motion.h2>
         <div className="w-12 h-px bg-luxury-gold mx-auto my-4" />
         <motion.p 
@@ -98,97 +98,44 @@ export default function HeroSection() {
           transition={{ duration: 1.5, delay: 0.4 }}
           className="font-serif italic text-sm md:text-base text-luxury-cream/80 max-w-lg mx-auto leading-relaxed"
         >
-          Merayakan pertambahan usia sosok tercinta yang membawa sejuta kehangatan, kebahagiaan, dan kedamaian dalam hidupku.
+          Sebuah catatan kecil dan kejutan spesial dari Iqbal untuk merayakan hari lahirnya manusia favoritku di bumi.
         </motion.p>
       </div>
 
-      {/* 2. Stunning Couple Presentation */}
+      {/* 2. Stunning Portrait and Love Letter */}
       <div className="relative z-10 w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center my-10">
         
-        {/* Groom Profile Card */}
+        {/* Left Side: Portrait of Fahira */}
         <motion.div 
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, ease: 'easeOut' }}
-          className="flex flex-col items-center text-center space-y-6 group w-full"
+          transition={{ duration: 1.2, ease: 'easeOut' }}
+          className="flex flex-col items-center text-center space-y-6 w-full"
         >
-          {/* Photo Frame Container with glow */}
-          <div className="relative w-full max-w-sm h-72 md:h-96 overflow-hidden rounded-lg shadow-gold-glow border border-luxury-gold/20 p-2 bg-luxury-dark/60 transition-luxury hover:border-luxury-gold">
-            {/* Corner floral lines */}
-            <div className="absolute top-4 left-4 border-t border-l border-luxury-gold/40 w-4 h-4 transition-all duration-500 group-hover:w-8 group-hover:h-8" />
-            <div className="absolute bottom-4 right-4 border-b border-r border-luxury-gold/40 w-4 h-4 transition-all duration-500 group-hover:w-8 group-hover:h-8" />
+          {/* Photo Frame Container with romantic glow */}
+          <div className="relative w-full max-w-sm h-80 md:h-[420px] overflow-hidden rounded-2xl shadow-gold-glow border border-luxury-gold/30 p-2.5 bg-luxury-dark/60">
+            {/* Elegant corner highlights */}
+            <div className="absolute top-4 left-4 border-t border-l border-luxury-gold/60 w-6 h-6" />
+            <div className="absolute bottom-4 right-4 border-b border-r border-luxury-gold/60 w-6 h-6" />
             
-            <div className="w-full h-full overflow-hidden rounded">
-              <img 
-                src={coupleInfo.groom.photo} 
-                alt={coupleInfo.groom.fullName}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-108 filter contrast-102 brightness-95"
-              />
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <h3 className="font-serif text-2xl md:text-3xl text-luxury-ivory font-light tracking-wide leading-none mt-2">
-              {coupleInfo.groom.fullName}
-            </h3>
-            <p className="font-sans text-xs text-luxury-gold/70 uppercase tracking-widest">
-              — Pengirim Kejutan Cinta
-            </p>
-            <div className="text-sm text-luxury-cream/80 leading-relaxed font-serif italic">
-              <p>Kekasih Hati Fahira</p>
-              <p>& Pembuat Web Kejutan Ini</p>
-            </div>
-            
-            <a 
-              href={coupleInfo.groom.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-4 text-xs font-sans text-luxury-gold hover:text-luxury-gold-light border border-luxury-gold/25 hover:border-luxury-gold/60 rounded-full px-4 py-1.5 transition-all duration-300 bg-luxury-black/30 backdrop-blur"
-            >
-              <Instagram className="w-3.5 h-3.5" />
-              <span>@{coupleInfo.groom.nickName.toLowerCase()}</span>
-            </a>
-          </div>
-        </motion.div>
-
-        {/* Bride Profile Card */}
-        <motion.div 
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, ease: 'easeOut' }}
-          className="flex flex-col items-center text-center space-y-6 group"
-        >
-          {/* Photo Frame Container with glow */}
-          <div className="relative w-full max-w-sm h-72 md:h-96 overflow-hidden rounded-lg shadow-gold-glow border border-luxury-gold/20 p-2 bg-luxury-dark/60 transition-luxury hover:border-luxury-gold">
-            {/* Corner floral lines */}
-            <div className="absolute top-4 left-4 border-t border-l border-luxury-gold/40 w-4 h-4 transition-all duration-500 group-hover:w-8 group-hover:h-8" />
-            <div className="absolute bottom-4 right-4 border-b border-r border-luxury-gold/40 w-4 h-4 transition-all duration-500 group-hover:w-8 group-hover:h-8" />
-            
-            <div className="w-full h-full overflow-hidden rounded">
+            <div className="w-full h-full overflow-hidden rounded-xl">
               <img 
                 src={coupleInfo.bride.photo} 
                 alt={coupleInfo.bride.fullName}
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-108 filter contrast-102 brightness-95"
+                className="w-full h-full object-cover filter contrast-102 brightness-98"
               />
             </div>
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-1">
             <h3 className="font-serif text-2xl md:text-3xl text-luxury-ivory font-light tracking-wide leading-none mt-2">
               {coupleInfo.bride.fullName}
             </h3>
-            <p className="font-sans text-xs text-luxury-gold/70 uppercase tracking-widest">
-              — Ratu yang Berulang Tahun
+            <p className="font-sans text-xs text-luxury-gold/80 uppercase tracking-widest font-semibold">
+              — Ratu Hari Ini (The Birthday Queen)
             </p>
-            <div className="text-sm text-luxury-cream/80 leading-relaxed font-serif italic">
-              <p>Belahan Jiwa Iqbal</p>
-              <p>& Pemilik Senyuman Terindah</p>
-            </div>
-
             <a 
               href={coupleInfo.bride.instagram}
               target="_blank"
@@ -198,6 +145,45 @@ export default function HeroSection() {
               <Instagram className="w-3.5 h-3.5" />
               <span>@{coupleInfo.bride.nickName.toLowerCase()}</span>
             </a>
+          </div>
+        </motion.div>
+
+        {/* Right Side: Love Letter Card from Iqbal */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, delay: 0.2 }}
+          className="flex flex-col items-center w-full"
+        >
+          <div className="w-full max-w-md p-6 md:p-8 rounded-2xl glass-card border border-luxury-gold/30 shadow-gold-glow relative bg-luxury-darker/50">
+            {/* Subtle overlay envelope seal decoration */}
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-luxury-gold flex items-center justify-center shadow-gold-glow">
+              <span className="text-luxury-black text-lg">♥</span>
+            </div>
+            
+            <h4 className="font-serif text-lg text-luxury-gold text-center tracking-widest uppercase mb-4 border-b border-luxury-gold/20 pb-2">
+              Surat Cinta untuk Kekasihku
+            </h4>
+            
+            <div className="space-y-4 font-serif text-sm md:text-base text-luxury-cream/90 leading-relaxed text-justify italic">
+              <p>
+                Hi Fahira,
+              </p>
+              <p>
+                Selamat ulang tahun ya!
+              </p>
+              <p>
+                Aku bersyukur banget bisa ada di samping kamu sampai hari ini. Makasih ya udah selalu sabar, nemenin aku, dan bawa banyak tawa di hidupku.
+              </p>
+              <p>
+                Semoga di umur yang baru ini kamu selalu bahagia, sehat, dan semua mimpi-mimpi kamu bisa terwujud satu per satu. Aku bakal selalu ada di sini buat dukung kamu terus.
+              </p>
+              <div className="text-right font-accent text-luxury-gold text-2xl mt-4 pl-4 leading-none">
+                With love,<br/>
+                <span className="text-luxury-ivory font-serif text-base tracking-widest block mt-2">— Iqbal</span>
+              </div>
+            </div>
           </div>
         </motion.div>
 

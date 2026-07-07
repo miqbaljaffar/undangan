@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Calendar, Clock, MapPin, Navigation, CalendarDays, ExternalLink, ShieldCheck } from 'lucide-react';
@@ -9,7 +9,6 @@ gsap.registerPlugin(ScrollTrigger);
 export default function EventDetails() {
   const containerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
-  const [activeTab, setActiveTab] = useState(0); // Index of event selection
 
   useEffect(() => {
     // Scroll reveal title and sections
@@ -53,10 +52,10 @@ export default function EventDetails() {
 
   const handleSaveToCalendar = () => {
     // Generate valid Google Calendar event addition URL for July 17, 2026
-    const title = encodeURIComponent("Perayaan Ulang Tahun Fahira Ainun Nissa");
+    const title = encodeURIComponent("Perayaan Ulang Ulang Tahun Fahira Ainun Nissa");
     const dates = "20260717T120000Z/20260717T140000Z"; // UTC Date
-    const details = encodeURIComponent("Kehadiran Anda adalah kehormatan bagi kami. Mari bersama merayakan hari kelahiran belahan jiwa saya, Fahira Ainun Nissa.");
-    const location = encodeURIComponent("The Peak Resort Dining, Lembang, Bandung");
+    const details = encodeURIComponent("Merayakan hari lahir Fahira tercinta. Mari rayakan bersama!");
+    const location = encodeURIComponent("The Peak Resort Dining, Bandung");
     
     const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}`;
     
@@ -72,39 +71,34 @@ export default function EventDetails() {
       {/* Background Soft Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-87.5 h-87.5 bg-luxury-gold/5 rounded-full blur-[110px] pointer-events-none" />
 
-      {/* Header and navigation tabs */}
+      {/* Header */}
       <div className="text-center max-w-2xl mx-auto space-y-4 mb-20 relative z-10">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full glass-card text-luxury-gold text-xs font-sans tracking-widest uppercase mb-2">
           <CalendarDays className="w-3.5 h-3.5" />
-          <span>Agenda Perayaan</span>
+          <span>Rencana Perayaan Kita</span>
         </div>
         
         <h2 className="font-serif text-3xl md:text-5xl text-luxury-ivory font-light tracking-wide text-glow event-animate-header">
-          Detail Perayaan
+          Kencan Spesial Ulang Tahun
         </h2>
         
         <div className="w-16 h-px bg-linear-to-r from-transparent via-luxury-gold to-transparent mx-auto event-animate-header" />
         
         <p className="text-xs md:text-sm text-luxury-cream/70 font-sans max-w-md mx-auto leading-relaxed event-animate-header">
-          Kehadiran dan doa restu yang tulus dari keluarga serta sahabat dekat akan menyertai momen indah pertambahan usia Fahira.
+          Untuk merayakan hari kelahiranmu yang istimewa, aku telah merencanakan kencan manis berdua untuk kita nikmati bersama.
         </p>
       </div>
 
       {/* Main Events Cards Layout */}
       <div 
         ref={cardsRef}
-        className="relative z-10 w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12"
+        className="relative z-10 w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8"
       >
         {weddingEvents.map((event, index) => {
           return (
             <div 
               key={index}
-              onClick={() => setActiveTab(index)}
-              className={`event-bento-card p-6 md:p-8 rounded-2xl glass-card cursor-pointer transition-luxury shadow-gold-glow flex flex-col justify-between relative group ${
-                activeTab === index 
-                  ? 'ring-2 ring-luxury-gold border-luxury-gold/50 bg-white/8' 
-                  : 'border-white/10 hover:border-luxury-gold/30 hover:bg-white/8'
-              }`}
+              className="event-bento-card p-6 md:p-8 rounded-2xl glass-card transition-luxury shadow-gold-glow flex flex-col justify-between relative group border-white/10 hover:border-luxury-gold/30 hover:bg-white/8"
             >
               {/* Event Badge Icon overlay */}
               <div className="absolute top-6 right-6 w-9 h-9 rounded-full border border-luxury-gold/20 flex items-center justify-center text-luxury-gold group-hover:scale-110 transition-transform duration-300">
@@ -114,7 +108,7 @@ export default function EventDetails() {
               <div>
                 {/* Accent Tag */}
                 <span className="font-sans text-[10px] md:text-xs text-luxury-gold font-semibold uppercase tracking-[0.2em]">
-                  {index === 0 ? "Dinner Romantis" : "Pesta Ulang Ulang Tahun"}
+                  {index === 0 ? "Dinner Romantis" : "Pesta Ulang Tahun"}
                 </span>
 
                 <h3 className="font-serif text-2xl md:text-3xl text-luxury-ivory font-light mt-2 mb-6 tracking-wide text-glow">
@@ -172,37 +166,6 @@ export default function EventDetails() {
             </div>
           );
         })}
-      </div>
-
-      {/* Embedded Dynamic Interactive Map View */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto mt-12 rounded-2xl overflow-hidden glass-card shadow-gold-glow p-2">
-        <div className="w-full h-80 md:h-100 rounded-xl overflow-hidden relative">
-          <iframe
-            title="Google Maps Location"
-            src={weddingEvents[activeTab].mapsEmbedUrl}
-            width="100%"
-            height="100%"
-            className="border-0 grayscale invert-90 contrast-105 opacity-85 hover:opacity-100 transition-opacity duration-500"
-            allowFullScreen={false}
-            loading="lazy"
-            referrerPolicy="no-referrer"
-          />
-        </div>
-        <div className="p-4 flex flex-col md:flex-row items-center justify-between gap-4 bg-luxury-black/70 rounded-b font-sans text-xs">
-          <div>
-            <span className="text-luxury-gold font-semibold uppercase tracking-wider block mb-1">Lokasi Aktif:</span>
-            <span className="text-luxury-cream/80">{weddingEvents[activeTab].venue}</span>
-          </div>
-          <a
-            href={weddingEvents[activeTab].mapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-5 py-2.5 bg-luxury-gold hover:bg-luxury-gold-light text-luxury-black rounded font-semibold uppercase tracking-widest text-[10px] transition-all duration-300 hover:scale-[1.02] flex items-center gap-1.5"
-          >
-            <Navigation className="w-3.5 h-3.5" />
-            <span>Buka Google Maps</span>
-          </a>
-        </div>
       </div>
     </section>
   );
